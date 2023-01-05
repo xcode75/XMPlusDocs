@@ -33,8 +33,8 @@ NB: add in all the language files fa_IR
 
 $i18n['fa_IR'] = array(
     'en_US'     => 	'English (US)',
-	'zh_CN'     => 	'中文 (CN)',
-	'fa_IR'     => 	'Farsi (IR)',
+    'zh_CN'     => 	'中文 (CN)',
+    'fa_IR'     => 	'Farsi (IR)',
 );	
 ```
 
