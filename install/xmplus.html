@@ -523,12 +523,14 @@ Nodes:
 #        CertEnv:
 #          CLOUDFLARE_EMAIL: 
 #          CLOUDFLARE_API_KEY:
-</code></pre><p>ApiHost :  your website address. eg, <a href="https://www.tld.com" target="_blank">https://www.tld.com</a>  and not this <a href="https://www.tld.com/" target="_blank">https://www.tld.com/</a></p>
-<p>ApiKey: your api key, an be found in admin settings &gt; API settings &gt; API Key</p>
-<p>NodeID:  The server id umber after creating a server in the admin panel</p>
-<p>Timeout: time before no response from api.</p>
-<p>UpdatePeriodic:  time(seconds) after backend send data to the fromt end and retrieve nre data from frontend . least is 60 seconds, if you change theis value, remember to also change in admin panel &gt; api settings &gt; Update Period(s)</p>
-<p>CertConfig: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.</p>
+</code></pre><blockquote>
+<p><code>ApiHost</code> :  your website address. eg, <a href="https://www.tld.com" target="_blank">https://www.tld.com</a>  and not this <a href="https://www.tld.com/" target="_blank">https://www.tld.com/</a></p>
+<p><code>ApiKey</code>: your api key, an be found in admin settings &gt; API settings &gt; API Key</p>
+<p><code>NodeID</code>:  The server id umber after creating a server in the admin panel</p>
+<p><code>Timeout</code>: time before no response from api.</p>
+<p><code>UpdatePeriodic</code>:  time(seconds) after backend send data to the fromt end and retrieve nre data from frontend . least is 60 seconds, if you change theis value, remember to also change in admin panel &gt; api settings &gt; Update Period(s)</p>
+<p><code>CertConfig</code>: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.</p>
+</blockquote>
 <h3 id="importan-notice">Importan Notice</h3>
 <p>Do not install backend on same server as frontend if you intend to enable tls on the backend.</p>
 <p>Reason: certificate generation need port 80 to be free, but since frontend is running on port 80, backend will panic, and cannot start.</p>
@@ -579,7 +581,7 @@ Nodes:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Docking Trojan","level":"3.1","depth":1,"path":"servers/trojan.md","ref":"servers/trojan.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-01-05T12:02:37.546Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-05T12:03:13.804Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Docking Trojan","level":"3.1","depth":1,"path":"servers/trojan.md","ref":"servers/trojan.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-01-05T12:10:24.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-05T12:11:01.907Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
