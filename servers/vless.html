@@ -369,8 +369,9 @@
 </tr>
 </tbody>
 </table>
+<p>Server port and listening port must be the same, unless you are using other method such as nginx(fill nginx port for server port) to process tls.</p>
 <h3 id="tlsxtls-configuration-xtls-only-support-tcp&#x3001;kcp-security-settings">TLS/XTLS Configuration (XTLS Only support TCP&#x3001;KCP) (Security Settings)</h3>
-<p><a href="https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject" target="_blank">TLS Object</a></p>
+<p>Check documentation <a href="https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject" target="_blank">TLS Object</a></p>
 <blockquote>
 <p><code>serverName</code>: your certificate address</p>
 <p><code>fingerprint</code>: &quot;&quot; | &quot;chrome&quot; | &quot;firefox&quot; | &quot;safari&quot; | &quot;randomized&quot;</p>
@@ -386,7 +387,7 @@
 </code></pre>
 <h2 id="server-transport-configuration-network-settings">Server Transport Configuration (Network Settings)</h2>
 <ul>
-<li>Remember to select the correct network setting for the transport tyep(Network)</li>
+<li>Remember to select the correct network setting for the transport type(Network)</li>
 </ul>
 <h2 id="tcp">tcp</h2>
 <pre><code class="lang-json">{
@@ -416,7 +417,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Transport method based on tcp<a href="https://xtls.github.io/Xray-docs-next/config/transports/tcp.html" target="_blank">TCP Method</a></p>
+<p>Transport method based on tcp <a href="https://xtls.github.io/Xray-docs-next/config/transports/tcp.html" target="_blank">TCP Method</a></p>
 </blockquote>
 <h2 id="wstls">ws(tls)</h2>
 <p>default path  /</p>
@@ -433,7 +434,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Transport method based on ws<a href="https://xtls.github.io/Xray-docs-next/config/transports/websocket.html" target="_blank">WS Method</a></p>
+<p>Transport method based on ws <a href="https://xtls.github.io/Xray-docs-next/config/transports/websocket.html" target="_blank">WS Method</a></p>
 </blockquote>
 <h2 id="grpctls">grpc(tls)</h2>
 <blockquote>
@@ -445,7 +446,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Transport method based on gRPC<a href="https://xtls.github.io/Xray-docs-next/config/transports/grpc.html" target="_blank">GRPC Method</a></p>
+<p>Transport method based on gRPC <a href="https://xtls.github.io/Xray-docs-next/config/transports/grpc.html" target="_blank">GRPC Method</a></p>
 </blockquote>
 <h2 id="quic--tls">quic + tls</h2>
 <blockquote>
@@ -454,7 +455,7 @@
 </blockquote>
 <p>backend quic transport failed to start run command: sysctl -w net.core.rmem_max=2500000 </p>
 <blockquote>
-<p>Increase buffer size<a href="https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size" target="_blank">quic udp problem</a></p>
+<p>Increase buffer size <a href="https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size" target="_blank">quic udp problem</a></p>
 </blockquote>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
@@ -466,7 +467,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Transport method based on quic<a href="https://xtls.github.io/Xray-docs-next/config/transports/quic.html" target="_blank">QUIC Method</a></p>
+<p>Transport method based on quic <a href="https://xtls.github.io/Xray-docs-next/config/transports/quic.html" target="_blank">QUIC Method</a></p>
 </blockquote>
 <h2 id="kcptls">kcp(tls)</h2>
 <blockquote>
@@ -483,7 +484,7 @@
 }
 </code></pre>
 <blockquote>
-<p>Transport method based on kcp<a href="https://xtls.github.io/Xray-docs-next/config/transports/mkcp.html" target="_blank">KCP Method</a></p>
+<p>Transport method based on kcp <a href="https://xtls.github.io/Xray-docs-next/config/transports/mkcp.html" target="_blank">KCP Method</a></p>
 </blockquote>
 
                                 
@@ -528,7 +529,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docking Vless","level":"3.3","depth":1,"next":{"title":"Docking Shadowsocks","level":"3.4","depth":1,"path":"servers/shadowsocks.md","ref":"servers/shadowsocks.md","articles":[]},"previous":{"title":"Docking Vmess","level":"3.2","depth":1,"path":"servers/vmess.md","ref":"servers/vmess.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/vless.md","mtime":"2023-01-05T12:16:14.871Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-05T12:16:41.772Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docking Vless","level":"3.3","depth":1,"next":{"title":"Docking Shadowsocks","level":"3.4","depth":1,"path":"servers/shadowsocks.md","ref":"servers/shadowsocks.md","articles":[]},"previous":{"title":"Docking Vmess","level":"3.2","depth":1,"path":"servers/vmess.md","ref":"servers/vmess.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/vless.md","mtime":"2023-01-05T16:37:10.458Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-05T16:37:38.530Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
