@@ -37,6 +37,8 @@ $i18n['fa_IR'] = array(
 );	
 ```
 
+> `Enable Language` Go to admin settings > Basic settings and chose the language Farsi and submit.
+
 ## General Settings
 
 > `Site URL` : https://tld.com  this must be changed in /www/wwwroot/tld.com/config/config.php
