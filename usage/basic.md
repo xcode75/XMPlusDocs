@@ -26,11 +26,10 @@ Translate only the values and not the keys of the array.
 
 Do not translate any word in %%, eg, %name%.
 
-NB: add in all the language files fa_IR
+NB: eg, add in all the language files fa_IR
 
 ```
 <?php
-
 $i18n['fa_IR'] = array(
     'en_US'     => 	'English (US)',
     'zh_CN'     => 	'中文 (CN)',
@@ -40,15 +39,16 @@ $i18n['fa_IR'] = array(
 
 ## General Settings
 
-Site URL : https://tld.com  this must be changed in /www/wwwroot/tld.com/config/config.php
+> `Site URL` : https://tld.com  this must be changed in /www/wwwroot/tld.com/config/config.php
 
-Sub URL: https://tld.com/link/
+> `Sub URL`: https://tld.com/link/
 
-Password Salt:  is a key added to user login password for security
+> `Password Salt`:  is a key added to user login password for security
 
-Hashing: method for generating user login password
+> `Hashing`: method for generating user login password
 
-Password Mode:
+> `Password Mode`:
+
 - User defined + secured (must follow the password recommendation format to create password)
 - User defined (whatever password the user chose)
 

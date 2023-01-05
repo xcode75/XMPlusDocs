@@ -78,17 +78,17 @@ Nodes:
 #          CLOUDFLARE_API_KEY: 
 ```
 
-ApiHost :  your website address. eg, https://www.tld.com  and not this https://www.tld.com/
+> `ApiHost` :  your website address. eg, https://www.tld.com  and not this https://www.tld.com/
 
-ApiKey: your api key, an be found in admin settings > API settings > API Key
+> `ApiKey`: your api key, an be found in admin settings > API settings > API Key
 
-NodeID:  The server id umber after creating a server in the admin panel
+> `NodeID`:  The server id umber after creating a server in the admin panel
 
-Timeout: time before no response from api.
+> `Timeout`: time before no response from api.
 
-UpdatePeriodic:  time(seconds) after backend send data to the fromt end and retrieve nre data from frontend . least is 60 seconds, if you change theis value, remember to also change in admin panel > api settings > Update Period(s)
+> `UpdatePeriodic`:  time(seconds) after backend send data to the fromt end and retrieve nre data from frontend . least is 60 seconds, if you change theis value, remember to also change in admin panel > api settings > Update Period(s)
 
-CertConfig: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.
+> `CertConfig`: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.
 
 ### Importan Notice
 Do not install backend on same server as frontend if you intend to enable tls on the backend.
