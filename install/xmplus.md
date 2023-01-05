@@ -86,14 +86,14 @@ Nodes:
 
 > `Timeout`: time before no response from api.
 
-> `UpdatePeriodic`:  time(seconds) after backend send data to the fromt end and retrieve nre data from frontend . least is 60 seconds, if you change theis value, remember to also change in admin panel > api settings > Update Period(s)
+> `UpdatePeriodic`:  time(seconds) after backend send data to the frontend and retrieve new data from frontend. Least time is 60 seconds, if you change theis value, remember to also change in admin panel > api settings > Update Period(s)
 
 > `CertConfig`: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.
 
 ### Importan Notice
 Do not install backend on same server as frontend if you intend to enable tls on the backend.
 
-Reason: certificate generation need port 80 to be free, but since frontend is running on port 80/443, backend will panic, and cannot start.
+Reason: certificate generation need port 80 to be free, but since the frontend is running on port 80/443, backend will panic, and cannot start.
 
 
 ### Backend Transit(Tunnel) (Node A -> Transit -> Node B)
