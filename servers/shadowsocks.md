@@ -1,7 +1,7 @@
 # Shadowsocks(2022)
 
 | Protocol | Supported Transport |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Shadowsocks | tcp, ws, grpc, quic |
 
 ### TLS Configuration (Security Settings)

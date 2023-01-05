@@ -1,7 +1,7 @@
 # Trojan
 
 | Protocol | Supported Transport |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Trojan | tcp, ws, grpc |
 
 

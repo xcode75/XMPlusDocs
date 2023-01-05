@@ -1,7 +1,7 @@
 # Vmess
 
 | Protocol | Supported Transport |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Vmess |tcp, ws,h2, grpc, kcp |
 
 ### TLS Configuration (Security Settings)

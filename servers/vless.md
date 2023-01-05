@@ -1,7 +1,7 @@
 # Vless
 
 | Protocol | Supported Transport 
-| :--- | :--- | :--- |
+| :--- | :--- |
 | Vless | √tcp, ws,h2, grpc, kcp |
 
 
