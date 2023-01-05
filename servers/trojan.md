@@ -10,7 +10,7 @@ Server port and listening port must be the same, unless you are using other meth
 
 Check documentation [TLS Object](https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject)
 
-> `serverName`: your certificate address
+> `serverName`: your certificate domain address
 
 > `fingerprint`: "" | "chrome" | "firefox" | "safari" | "randomized"
 

@@ -2,7 +2,7 @@
 
 | Protocol | Supported Transport 
 | :--- | :--- |
-| Vless | √tcp, ws,h2, grpc, kcp |
+| Vless | tcp, ws,h2, grpc, kcp |
 
 Server port and listening port must be the same, unless you are using other method such as nginx(fill nginx port for server port) to process tls.
 
@@ -10,7 +10,7 @@ Server port and listening port must be the same, unless you are using other meth
 
 Check documentation [TLS Object](https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject)
 
-> `serverName`: your certificate address
+> `serverName`: your certificate domain address
 
 > `fingerprint`: "" | "chrome" | "firefox" | "safari" | "randomized"
 

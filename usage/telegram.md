@@ -18,6 +18,6 @@ After logging in to the server with SSH, access the site path such as: /www/wwwr
 
 Enter the command: php bin/console.php telegram set
 
-	- Get the chat ID: your robot sends a message /ping
+- Get the chat ID: your robot sends a message /ping
 
-	- Get the group chat ID: Create a TG group, add a robot to the group, send a message /ping in the group
+- Get the group chat ID: Create a TG group, add a robot to the group, send a message /ping in the group
