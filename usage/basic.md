@@ -20,7 +20,7 @@ Go to your site localization directory  such as: /www/wwwroot/tld.com/localizati
 
 Make a copy of the en_US.php file to the language you want to translate.
 
-Example fa_IR.php for farsi
+Example fa_IR.php for Persian
 
 Translate only the values and not the keys of the array.
 
@@ -33,11 +33,11 @@ NB: eg, add in all the language files fa_IR
 $i18n['fa_IR'] = array(
     'en_US'     => 	'English (US)',
     'zh_CN'     => 	'中文 (CN)',
-    'fa_IR'     => 	'Farsi (IR)',
+    'fa_IR'     => 	'Persian (IR)',
 );	
 ```
 
-> `Enable Language` Go to admin settings > Basic settings and chose the language Farsi and submit.
+> `Enable Language` Go to admin settings > Basic settings and chose the language Persian and submit.
 
 ## General Settings
 

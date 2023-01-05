@@ -93,7 +93,7 @@ Nodes:
 ### Importan Notice
 Do not install backend on same server as frontend if you intend to enable tls on the backend.
 
-Reason: certificate generation need port 80 to be free, but since frontend is running on port 80, backend will panic, and cannot start.
+Reason: certificate generation need port 80 to be free, but since frontend is running on port 80/443, backend will panic, and cannot start.
 
 
 ### Backend Transit(Tunnel) (Node A -> Transit -> Node B)

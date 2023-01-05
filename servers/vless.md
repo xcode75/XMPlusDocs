@@ -4,10 +4,11 @@
 | :--- | :--- |
 | Vless | √tcp, ws,h2, grpc, kcp |
 
+Server port and listening port must be the same, unless you are using other method such as nginx(fill nginx port for server port) to process tls.
 
 ### TLS/XTLS Configuration (XTLS Only support TCP、KCP) (Security Settings)
 
-[TLS Object](https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject)
+Check documentation [TLS Object](https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject)
 
 > `serverName`: your certificate address
 
@@ -28,7 +29,7 @@
 
 ## Server Transport Configuration (Network Settings)
 
-- Remember to select the correct network setting for the transport tyep(Network)
+- Remember to select the correct network setting for the transport type(Network)
 
 
 ## tcp
@@ -64,7 +65,7 @@ default path  /
 }
 ```
 
-> Transport method based on tcp[TCP Method](https://xtls.github.io/Xray-docs-next/config/transports/tcp.html)
+> Transport method based on tcp [TCP Method](https://xtls.github.io/Xray-docs-next/config/transports/tcp.html)
 
 
 ## ws(tls) 
@@ -84,7 +85,7 @@ default path  /
 }
 ```
 
-> Transport method based on ws[WS Method](https://xtls.github.io/Xray-docs-next/config/transports/websocket.html)
+> Transport method based on ws [WS Method](https://xtls.github.io/Xray-docs-next/config/transports/websocket.html)
 
 
 ## grpc(tls)
@@ -98,7 +99,7 @@ default path  /
 }
 ```
 
-> Transport method based on gRPC[GRPC Method](https://xtls.github.io/Xray-docs-next/config/transports/grpc.html)
+> Transport method based on gRPC [GRPC Method](https://xtls.github.io/Xray-docs-next/config/transports/grpc.html)
 
 
 ## quic + tls
@@ -109,7 +110,7 @@ default path  /
 
 backend quic transport failed to start run command: sysctl -w net.core.rmem_max=2500000 
 
-> Increase buffer size[quic udp problem](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
+> Increase buffer size [quic udp problem](https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size)
 
 ```json
 {
@@ -122,7 +123,7 @@ backend quic transport failed to start run command: sysctl -w net.core.rmem_max=
 }
 ```
 
-> Transport method based on quic[QUIC Method](https://xtls.github.io/Xray-docs-next/config/transports/quic.html)
+> Transport method based on quic [QUIC Method](https://xtls.github.io/Xray-docs-next/config/transports/quic.html)
 
 ## kcp(tls)
 
@@ -141,4 +142,4 @@ backend quic transport failed to start run command: sysctl -w net.core.rmem_max=
 }
 ```
 
-> Transport method based on kcp[KCP Method](https://xtls.github.io/Xray-docs-next/config/transports/mkcp.html)
+> Transport method based on kcp [KCP Method](https://xtls.github.io/Xray-docs-next/config/transports/mkcp.html)
