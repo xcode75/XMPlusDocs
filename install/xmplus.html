@@ -1,0 +1,618 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Backend Installation - Backend · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../servers/trojan.html" />
+    
+    
+    <link rel="prev" href="aapanel.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    About XMPlus
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">XMPlus</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="aapanel.html">
+            
+                <a href="aapanel.html">
+            
+                    
+                    Frontend Installation - Frontend
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="xmplus.html">
+            
+                <a href="xmplus.html">
+            
+                    
+                    Backend Installation - Backend
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Frontend Server settings</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../servers/trojan.html">
+            
+                <a href="../servers/trojan.html">
+            
+                    
+                    Docking Trojan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../servers/vmess.html">
+            
+                <a href="../servers/vmess.html">
+            
+                    
+                    Docking Vmess
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../servers/vless.html">
+            
+                <a href="../servers/vless.html">
+            
+                    
+                    Docking Vless
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../servers/shadowsocks.html">
+            
+                <a href="../servers/shadowsocks.html">
+            
+                    
+                    Docking Shadowsocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Frontend usage settings</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../usage/license.html">
+            
+                <a href="../usage/license.html">
+            
+                    
+                    Authorization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../usage/livechat.html">
+            
+                <a href="../usage/livechat.html">
+            
+                    
+                    LiveChat
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../usage/google.html">
+            
+                <a href="../usage/google.html">
+            
+                    
+                    Mailing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../usage/zone.html">
+            
+                <a href="../usage/zone.html">
+            
+                    
+                    CF Zone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../usage/captcha.html">
+            
+                <a href="../usage/captcha.html">
+            
+                    
+                    Captcha
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../usage/telegram.html">
+            
+                <a href="../usage/telegram.html">
+            
+                    
+                    TelegramBot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../usage/knowledgebase.html">
+            
+                <a href="../usage/knowledgebase.html">
+            
+                    
+                    KnowledgeBase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../usage/basic.html">
+            
+                <a href="../usage/basic.html">
+            
+                    
+                    Other Settings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Backend Installation - Backend</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="xmplus-backend-installation">XMPlus backend installation</h1>
+<p>The XMPlus backend is a customized version of XRayR (one server supports multiple nodes)</p>
+<h2 id="features">Features</h2>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>vmess</th>
+<th>vless</th>
+<th>trojan</th>
+<th>ss</th>
+<th>ss-plugin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get Server Info</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Get User Info</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Report User Stats</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Report Server Stats</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Auto Apply tls Cert</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Auto-Renew tls Cert</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Online Statistics</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Online User IPlinit</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Detection Rules</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Server Speedlimit</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>User Speedlimit</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Customize DNS</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+</tr>
+<tr>
+<td>Server Relay</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>&#x221A;</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<h3 id="one-click-installation">one-click installation</h3>
+<pre><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/xcode75/XMPlus/install/install.sh)
+</code></pre><h3 id="backend-configuration">Backend configuration</h3>
+<p>vi /etc/XMPlus/config.yml</p>
+<pre><code>Log:
+  Level: info # Log level: none, error, warning, info, debug 
+  AccessPath: # /etc/XMPlus/access.Log
+  ErrorPath: # /etc/XMPlus/error.log
+DnsConfigPath:  /etc/XMPlus/dns.json
+RouteConfigPath: # /etc/XMPlus/route.json
+InboundConfigPath: # /etc/XMPlus/inbound.json
+OutboundConfigPath: # /etc/XMPlus/outbound.json
+ConnectionConfig:
+  Handshake: 8 
+  ConnIdle: 150 
+  UplinkOnly: 0 
+  DownlinkOnly: 0 
+  BufferSize: 64
+Nodes:
+  -
+    ApiConfig:
+      ApiHost: &quot;http://127.0.0.1&quot;
+      ApiKey: &quot;123&quot;
+      NodeID: 1
+      Timeout: 30 
+    ControllerConfig:
+      UpdatePeriodic: 60
+      CertConfig:
+        Provider: cloudflare
+        Email: author@xmplus.dev
+        CertEnv:
+          CLOUDFLARE_EMAIL: 
+          CLOUDFLARE_API_KEY: 
+
+#  -
+#    ApiConfig:
+#      ApiHost: &quot;http://127.0.0.1&quot;
+#      ApiKey: &quot;123&quot;
+#      NodeID: 2
+#      Timeout: 30 
+#    ControllerConfig:
+#      UpdatePeriodic: 60
+#      CertConfig:
+#        Provider: cloudflare
+#        Email: author@xmplus.dev
+#        CertEnv:
+#          CLOUDFLARE_EMAIL: 
+#          CLOUDFLARE_API_KEY:
+</code></pre><p>ApiHost :  your website address. eg, <a href="https://www.tld.com" target="_blank">https://www.tld.com</a>  and not this <a href="https://www.tld.com/" target="_blank">https://www.tld.com/</a></p>
+<p>ApiKey: your api key, an be found in admin settings &gt; API settings &gt; API Key</p>
+<p>NodeID:  The server id umber after creating a server in the admin panel</p>
+<p>Timeout: time before no response from api.</p>
+<p>UpdatePeriodic:  time(seconds) after backend send data to the fromt end and retrieve nre data from frontend . least is 60 seconds, if you change theis value, remember to also change in admin panel &gt; api settings &gt; Update Period(s)</p>
+<p>CertConfig: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.</p>
+<h3 id="importan-notice">Importan Notice</h3>
+<p>Do not install backend on same server as frontend if you intend to enable tls on the backend.</p>
+<p>Reason: certificate generation need port 80 to be free, but since frontend is running on port 80, backend will panic, and cannot start.</p>
+<h3 id="backend-transittunnel-node-a---transit---node-b">Backend Transit(Tunnel) (Node A -&gt; Transit -&gt; Node B)</h3>
+<p>The source and target nodes must have the XMPlus backend installed</p>
+<p>Node A -&gt; transit mode -&gt; XMPlus backend</p>
+<p>Node A -&gt; transit node -&gt; select target node B</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="aapanel.html" class="navigation navigation-prev " aria-label="Previous page: Frontend Installation - Frontend">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../servers/trojan.html" class="navigation navigation-next " aria-label="Next page: Docking Trojan">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Docking Trojan","level":"3.1","depth":1,"path":"servers/trojan.md","ref":"servers/trojan.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-01-05T12:00:51.848Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-05T12:01:27.877Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
