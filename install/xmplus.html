@@ -478,7 +478,7 @@
 <h3 id="one-click-installation">one-click installation</h3>
 <pre><code>bash &lt;(curl -Ls https://raw.githubusercontent.com/xcode75/XMPlus/install/install.sh)
 </code></pre><h3 id="backend-configuration">Backend configuration</h3>
-<p>vi /etc/XMPlus/config.yml</p>
+<p>vi /etc/XMPlus/config.yml  or can use any editor</p>
 <pre><code>Log:
   Level: info # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XMPlus/access.Log
@@ -526,7 +526,7 @@ Nodes:
 </code></pre><blockquote>
 <p><code>ApiHost</code> :  your website address. eg, <a href="https://www.tld.com" target="_blank">https://www.tld.com</a>  and not this <a href="https://www.tld.com/" target="_blank">https://www.tld.com/</a></p>
 <p><code>ApiKey</code>: your api key, an be found in admin settings &gt; API settings &gt; API Key</p>
-<p><code>NodeID</code>:  The server id umber after creating a server in the admin panel</p>
+<p><code>NodeID</code>:  The server id number after creating a server in the admin panel</p>
 <p><code>Timeout</code>: time before no response from api.</p>
 <p><code>UpdatePeriodic</code>:  time(seconds) after backend send data to the frontend and retrieve new data from frontend. Least time is 60 seconds, if you change theis value, remember to also change in admin panel &gt; api settings &gt; Update Period(s)</p>
 <p><code>CertConfig</code>: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.</p>
@@ -534,10 +534,14 @@ Nodes:
 <h3 id="importan-notice">Importan Notice</h3>
 <p>Do not install backend on same server as frontend if you intend to enable tls on the backend.</p>
 <p>Reason: certificate generation need port 80 to be free, but since the frontend is running on port 80/443, backend will panic, and cannot start.</p>
-<h3 id="backend-transittunnel-node-a---transit---node-b">Backend Transit(Tunnel) (Node A -&gt; Transit -&gt; Node B)</h3>
+<h3 id="allow-xrayeg-443-port-through-firewall">allow xray(eg, 443) port through firewall</h3>
+<pre><code>firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-port=443/udp
+firewall-cmd --reload
+</code></pre><h3 id="backend-transittunnel-node-a---transit---node-b">Backend Transit(Tunnel) (Node A -&gt; Transit -&gt; Node B)</h3>
 <p>The source and target nodes must have the XMPlus backend installed</p>
-<p>Node A -&gt; transit mode -&gt; XMPlus backend</p>
-<p>Node A -&gt; transit node -&gt; select target node B</p>
+<p>Node A -&gt; Transit Type -&gt; XMPlus backend</p>
+<p>Node A -&gt; Transit Server -&gt; select target node B</p>
 
                                 
                                 </section>
@@ -581,7 +585,7 @@ Nodes:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Docking Trojan","level":"3.1","depth":1,"path":"servers/trojan.md","ref":"servers/trojan.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-01-06T08:37:07.780Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-06T08:37:32.707Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Docking Trojan","level":"3.1","depth":1,"path":"servers/trojan.md","ref":"servers/trojan.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-01-07T01:24:48.586Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-07T01:25:25.384Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
