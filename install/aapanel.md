@@ -51,13 +51,27 @@ chmod +x install.sh
 ./install.sh
 ```
 
+aaPanel  > Database > copy database root password。
+
+Login to phpmyadmin with username root and your database root password
+
+Server connection collation: utf8mb4_unicode_ci
+
+Create a new database with: utf8mb4_unicode_ci 
+
 - Edit configuration /www/wwwroot/tld.com/config/config.php 
-  - fill in baseURL, your site address and the database information
 
-- New database format utf8mb4_unicode_ci
+  - fill in (baseURL), your site address
 
-- Import database with phpmyadmin  
+  -  You can change admin login path
+  
+  - fill in your database information(use root as username and root password in config.php)
+
+
+- Import database.sql with phpmyadmin  only.
+
   - file path  /www/wwwroot/tld.com/database/database.sql  
+  
   - NB: Do not use the aapanal panel to import sql
 
 ### 6.Configure site directory and pseudo-static
