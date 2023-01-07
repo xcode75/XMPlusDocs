@@ -32,7 +32,7 @@ aaPanel  > Website > Add site。
 - Select PHP-74 in PHP Verison
 
 ### 5. Install XMPlus
-After logging in to the server through SSH, visit the site path such as: /www/wwwroot/tld.com
+After logging in to the server through SSH, visit the site path: cd /www/wwwroot/tld.com
 
 The following commands need to be executed in the site directory.
 
@@ -76,7 +76,7 @@ location / {
 
 #### Create an administrator account:  
 
-After logging in to the server through SSH, visit the site path such as: /www/wwwroot/tld.com
+After logging in to the server through SSH, visit the site path:cd  /www/wwwroot/tld.com
 
 input the command: php bin/console.php admin
 

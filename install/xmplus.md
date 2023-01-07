@@ -29,7 +29,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/xcode75/XMPlus/install/install
 
 ### Backend configuration
 
-vi /etc/XMPlus/config.yml
+vi /etc/XMPlus/config.yml  or can use any editor
 
 ```
 Log:
@@ -82,7 +82,7 @@ Nodes:
 
 > `ApiKey`: your api key, an be found in admin settings > API settings > API Key
 
-> `NodeID`:  The server id umber after creating a server in the admin panel
+> `NodeID`:  The server id number after creating a server in the admin panel
 
 > `Timeout`: time before no response from api.
 
@@ -90,16 +90,25 @@ Nodes:
 
 > `CertConfig`: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.
 
+
 ### Importan Notice
 Do not install backend on same server as frontend if you intend to enable tls on the backend.
 
 Reason: certificate generation need port 80 to be free, but since the frontend is running on port 80/443, backend will panic, and cannot start.
 
 
+### allow xray(eg, 443) port through firewall
+
+```
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-port=443/udp
+firewall-cmd --reload
+```
+
 ### Backend Transit(Tunnel) (Node A -> Transit -> Node B)
 
 The source and target nodes must have the XMPlus backend installed
 
-Node A -> transit mode -> XMPlus backend
+Node A -> Transit Type -> XMPlus backend
 
-Node A -> transit node -> select target node B
+Node A -> Transit Server -> select target node B
