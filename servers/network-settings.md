@@ -21,7 +21,7 @@
   "header": {
     "type": "http",
     "request": {
-	  "path": "/",
+      "path": "/",
       "headers": {
         "Host": "xray.com"
       }
