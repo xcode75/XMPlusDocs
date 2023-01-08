@@ -45,7 +45,7 @@ rm -rf .htaccess 404.html index.html .user.ini
 ### Execute the command to install XMPlus
 ```
 cd /www/wwwroot/tld.com
-wget https://github.com/xcode75/XManagerPlus/releases/download/v2023/XMPlus.zip
+wget https://github.com/xcode75/XManagerPlus/releases/download/v202309/XMPlus.zip
 unzip XMPlus.zip
 chmod +x install.sh
 ./install.sh
