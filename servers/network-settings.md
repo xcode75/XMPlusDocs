@@ -23,7 +23,7 @@
     "request": {
 	  "path": "/",
       "headers": {
-        "Host": "xmplus.dev"
+        "Host": "xray.com"
       }
     }
   }
@@ -108,10 +108,10 @@ Increase buffer size [quic udp problem](https://github.com/lucas-clemente/quic-g
 ```json
 {
   "acceptProxyProtocol": false,
-  "security": "none",
-  "key": "",
+  "security": "aes-128-gcm",
+  "key": "password",
   "header": {
-    "type": "none"
+    "type": "dtls"
   }
 }
 ```
@@ -135,9 +135,9 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   "acceptProxyProtocol": false,
   "congestion": false,
   "header": {
-    "type": "none"
+    "type": "dtls"
   },
-  "seed": "Password"
+  "seed": "password"
 }
 ```
 > `acceptProxyProtocol:` true | false
