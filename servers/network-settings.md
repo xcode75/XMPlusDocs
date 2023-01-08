@@ -1,6 +1,6 @@
 # Network Settings
 
-### Server TransportNetwork() Settings 
+### Server Transport(Network) Settings 
 
 ## TCP
 
