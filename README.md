@@ -16,10 +16,9 @@ An Xray-based frontend and backend manager that supports Vless, Vmess, Trojan, S
 
 ## Front-end node settings
 
-   * [Docking Trojan](servers/trojan.md)
-   * [Docking Vmess](servers/vmess.md)
-   * [Docking Vless](servers/vless.md)
-   * [Docking Shadowsocks](servers/shadowsocks.md)
+   * [Protocols](servers/protocols.md)
+   * [Network Settings](servers/network-settings.md)
+   * [Security Settings](servers/security-settings.md)
 
 ## Front-end usage settings
 

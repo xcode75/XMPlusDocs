@@ -10,10 +10,9 @@
 
 ## Frontend Server settings
 
-   * [Docking Trojan](servers/trojan.md)
-   * [Docking Vmess](servers/vmess.md)
-   * [Docking Vless](servers/vless.md)
-   * [Docking Shadowsocks](servers/shadowsocks.md)
+   * [Protocols](servers/protocols.md)
+   * [Network Settings](servers/network-settings.md)
+   * [Security Settings](servers/security-settings.md)
 
 ## Frontend usage settings
 
