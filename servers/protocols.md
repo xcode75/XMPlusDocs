@@ -16,6 +16,7 @@
 | Setup Conbination | Support |
 | ----------| ---------- |
 | TCP | √ |
+| TCP + HTTP | √ |
 | WS | √ |
 | WS + TLS | √ |
 | GRPC + TLS | √ |
