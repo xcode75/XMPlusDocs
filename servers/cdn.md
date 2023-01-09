@@ -1,4 +1,4 @@
-# Nginx + Cloudflare CDN [WS(TLS) / GRPC (TLS)]
+## Nginx + Cloudflare CDN [ WS(TLS) / GRPC (TLS) ]
 
 > `Tested with Trojan, Vmess and Vless`  Use below ports in nginx server
 
@@ -53,7 +53,7 @@ Ubuntu/Debian:
  apt install nginx -y
 ```
 
-### Nginx配置
+### Nginx Config
 
 NB: There are two location added in this cdn.conf example, you only need to add and delete what you need.
 
