@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>CF Zone · GitBook</title>
+        <title>Nginx + Cloudflare CDN · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="captcha.html" />
+    <link rel="next" href="../usage/license.html" />
     
     
-    <link rel="prev" href="google.html" />
+    <link rel="prev" href="security-settings.html" />
     
 
     </head>
@@ -146,9 +146,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../servers/protocols.html">
+        <li class="chapter " data-level="3.1" data-path="protocols.html">
             
-                <a href="../servers/protocols.html">
+                <a href="protocols.html">
             
                     
                     Protocols
@@ -159,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../servers/network-settings.html">
+        <li class="chapter " data-level="3.2" data-path="network-settings.html">
             
-                <a href="../servers/network-settings.html">
+                <a href="network-settings.html">
             
                     
                     Network Settings
@@ -172,9 +172,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="../servers/security-settings.html">
+        <li class="chapter " data-level="3.3" data-path="security-settings.html">
             
-                <a href="../servers/security-settings.html">
+                <a href="security-settings.html">
             
                     
                     Security Settings
@@ -185,9 +185,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.4" data-path="../servers/cdn.html">
+        <li class="chapter active" data-level="3.4" data-path="cdn.html">
             
-                <a href="../servers/cdn.html">
+                <a href="cdn.html">
             
                     
                     Nginx + Cloudflare CDN
@@ -205,9 +205,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="license.html">
+        <li class="chapter " data-level="4.1" data-path="../usage/license.html">
             
-                <a href="license.html">
+                <a href="../usage/license.html">
             
                     
                     Authorization
@@ -218,9 +218,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="livechat.html">
+        <li class="chapter " data-level="4.2" data-path="../usage/livechat.html">
             
-                <a href="livechat.html">
+                <a href="../usage/livechat.html">
             
                     
                     LiveChat
@@ -231,9 +231,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="google.html">
+        <li class="chapter " data-level="4.3" data-path="../usage/google.html">
             
-                <a href="google.html">
+                <a href="../usage/google.html">
             
                     
                     Mailing
@@ -244,9 +244,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.4" data-path="zone.html">
+        <li class="chapter " data-level="4.4" data-path="../usage/zone.html">
             
-                <a href="zone.html">
+                <a href="../usage/zone.html">
             
                     
                     CF Zone
@@ -257,9 +257,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="captcha.html">
+        <li class="chapter " data-level="4.5" data-path="../usage/captcha.html">
             
-                <a href="captcha.html">
+                <a href="../usage/captcha.html">
             
                     
                     Captcha
@@ -270,9 +270,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6" data-path="telegram.html">
+        <li class="chapter " data-level="4.6" data-path="../usage/telegram.html">
             
-                <a href="telegram.html">
+                <a href="../usage/telegram.html">
             
                     
                     TelegramBot
@@ -283,9 +283,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7" data-path="knowledgebase.html">
+        <li class="chapter " data-level="4.7" data-path="../usage/knowledgebase.html">
             
-                <a href="knowledgebase.html">
+                <a href="../usage/knowledgebase.html">
             
                     
                     KnowledgeBase
@@ -296,9 +296,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.8" data-path="basic.html">
+        <li class="chapter " data-level="4.8" data-path="../usage/basic.html">
             
-                <a href="basic.html">
+                <a href="../usage/basic.html">
             
                     
                     Other Settings
@@ -339,7 +339,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >CF Zone</a>
+        <a href=".." >Nginx + Cloudflare CDN</a>
     </h1>
 </div>
 
@@ -354,18 +354,109 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="zones">Zones</h1>
-<p>Adding a Cloudflare zone can help you add, update, and delete Cloudflare DNS of nodes without logging in to Cloudflare to resolve DNS every time.</p>
-<h3 id="login-to-cloudflare">Login to Cloudflare</h3>
-<p>Website -&gt; Home -&gt; Choose your domain name -&gt; API  <a href="https://dash.cloudflare.com/profile/api-tokens" target="_blank">Get Zone ID</a></p>
-<p>API Token -&gt; API Key -&gt; Global API Key <a href="https://dash.cloudflare.com/profile/api-tokens" target="_blank">Get API Token</a></p>
-<h3 id="add-zone">Add Zone</h3>
-<h5 id="require">Require</h5>
-<p>&#x2611;&#xFE0F; CF mail
-&#x2611;&#xFE0F; CF domain name
-&#x2611;&#xFE0F; CF Zone ID
-&#x2611;&#xFE0F; CF API key</p>
-<p>XMPlus Panel -&gt; Zone List -&gt; Add Zone</p>
+                                <h1 id="nginx--cloudflare-cdn-wstls--grpc-tls">Nginx + Cloudflare CDN [WS(TLS) / GRPC (TLS)]</h1>
+<blockquote>
+<p><code>Tested with Trojan, Vmess and Vless</code>  Use below ports in nginx server</p>
+</blockquote>
+<p>HTTP(NO TLS) ports supported by Cloudflare</p>
+<pre><code>80
+8080
+8880
+2052
+2082
+2086
+2095
+</code></pre><p>HTTPS(TLS) ports supported by Cloudflare</p>
+<pre><code>443
+2053
+2083
+2087
+2096
+8443
+</code></pre><p>Ports supported by Cloudflare, but with caching disabled</p>
+<pre><code>2052
+2053
+2082
+2083
+2086
+2087
+2095
+2096
+8880
+8443
+</code></pre><p>Install Nginx on backend server</p>
+<p>CentOS&#xFF1A;</p>
+<pre><code> yum update
+
+ yum install -y nginx
+</code></pre><p>Ubuntu/Debian:</p>
+<pre><code> apt update
+
+ apt install nginx -y
+</code></pre><h3 id="nginx&#x914D;&#x7F6E;">Nginx&#x914D;&#x7F6E;</h3>
+<p>NB: There are two location added in this cdn.conf example, you only need to add and delete what you need.</p>
+<p>Create a custom config file and put in /etc/nginx/conf.d/ directory.</p>
+<p>cdn.conf</p>
+<pre><code>server {
+    listen 443 ssl http2  so_keepalive=on;
+    listen [::]:443 ssl http2; 
+    server_name hk.gbxcloud.com;
+
+    index index.html;
+    root /var/www/html;
+
+    ssl_certificate /your/cert/path.crt;
+    ssl_certificate_key /your/key/path.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+
+    client_header_timeout 52w;
+    keepalive_timeout 52w;
+
+    #-------------------------------GRPC-----------------------------------------------
+
+    location /Your server GRPC ServiceName { #Your server GRPC ServiceName
+        if ($content_type !~ &quot;application/grpc&quot;) {
+            return 404;
+        }
+        client_max_body_size 0;
+        client_body_buffer_size 512k;
+        grpc_set_header X-Real-IP $remote_addr;
+        grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        client_body_timeout 52w;
+        grpc_read_timeout 52w;
+        grpc_pass grpc://127.0.0.1:Your server settings Listening Port; #grpc_pass grpc://127.0.0.1:5500
+    }
+
+    #-------------------------------Websocket-----------------------------------------------
+
+    #location /Your server Websocket Path {  #Your server Websocket Path
+    #      if ($http_upgrade != &quot;websocket&quot;) {
+    #          return 404;
+    #    }
+    #      proxy_redirect off;
+    #      proxy_pass http://127.0.0.1:Your XMPlus Listening Port; #proxy_pass http://127.0.0.1:5500
+    #      proxy_http_version 1.1;
+    #      proxy_set_header Upgrade $http_upgrade;
+    #      proxy_set_header Connection &quot;upgrade&quot;;
+    #      proxy_set_header Host $host;
+    #      proxy_set_header X-Real-IP $remote_addr;
+    #      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    #    proxy_set_header X-Real-IP       $proxy_protocol_addr;
+    #    proxy_set_header X-Forwarded-For $proxy_protocol_addr;
+    #}    
+}
+</code></pre><h5 id="restart-nginx">Restart Nginx</h5>
+<p>systemctl restart nginx</p>
+<blockquote>
+<p><code>Set your XMPlus server port to the nginx listen port. Example 443 for this setup</code></p>
+<p><code>Set your XMPlus Listening IP to 127.0.0.1</code></p>
+</blockquote>
+<h5 id="restart-xmplus-backend">Restart XMPlus backend</h5>
+<p>xmplus restart</p>
+<h5 id="enable-cloudflareproxied-cdn">Enable Cloudflare(proxied) CDN</h5>
+<p>Option 1. Turn on from server settings if you have already added zone.</p>
+<p>Option 2. Turn on from cloudflare dns tab for the host.</p>
 
                                 
                                 </section>
@@ -393,12 +484,12 @@
 
             
                 
-                <a href="google.html" class="navigation navigation-prev " aria-label="Previous page: Mailing">
+                <a href="security-settings.html" class="navigation navigation-prev " aria-label="Previous page: Security Settings">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="captcha.html" class="navigation navigation-next " aria-label="Next page: Captcha">
+                <a href="../usage/license.html" class="navigation navigation-next " aria-label="Next page: Authorization">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -409,7 +500,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"CF Zone","level":"4.4","depth":1,"next":{"title":"Captcha","level":"4.5","depth":1,"path":"usage/captcha.md","ref":"usage/captcha.md","articles":[]},"previous":{"title":"Mailing","level":"4.3","depth":1,"path":"usage/google.md","ref":"usage/google.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/zone.md","mtime":"2023-01-09T17:38:56.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-09T17:39:48.275Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"next":{"title":"Authorization","level":"4.1","depth":1,"path":"usage/license.md","ref":"usage/license.md","articles":[]},"previous":{"title":"Security Settings","level":"3.3","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/cdn.md","mtime":"2023-01-09T17:38:56.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-09T17:39:48.275Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
