@@ -2,6 +2,11 @@
 
 > `Tested with Trojan, Vmess and Vless`  Use below ports in nginx server
 
+#### Enable websocket and grpc traffic on cloudflare
+
+Login to Cloudflare > Network > Enable websocket and grpc
+
+
 HTTP(NO TLS) ports supported by Cloudflare
 ```
 80
@@ -64,7 +69,7 @@ cdn.conf
 server {
 	listen 443 ssl http2  so_keepalive=on;
 	listen [::]:443 ssl http2; 
-	server_name hk.gbxcloud.com;
+	server_name x.tld.com y.tld.com;
 
 	index index.html;
 	root /var/www/html;
