@@ -19,6 +19,7 @@ An Xray-based frontend and backend manager that supports Vless, Vmess, Trojan, S
    * [Protocols](servers/protocols.md)
    * [Network Settings](servers/network-settings.md)
    * [Security Settings](servers/security-settings.md)
+   * [Nginx + Cloudflare CDN](servers/cdn.md)
 
 ## Front-end usage settings
 

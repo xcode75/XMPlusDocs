@@ -13,6 +13,7 @@
    * [Protocols](servers/protocols.md)
    * [Network Settings](servers/network-settings.md)
    * [Security Settings](servers/security-settings.md)
+   * [Nginx + Cloudflare CDN](servers/cdn.md)
 
 ## Frontend usage settings
 
