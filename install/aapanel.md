@@ -16,6 +16,7 @@ Select the environment installation method using LNMP to check the following inf
 ☑️ Nginx
 ☑️ MySQL
 ☑️ PHP 7.4
+☑️ PHPMYADMIN
 
 Choose Fast to compile and install.
 
