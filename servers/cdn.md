@@ -69,13 +69,13 @@ cdn.conf
 server {
 	listen 443 ssl http2  so_keepalive=on;
 	listen [::]:443 ssl http2; 
-	server_name x.tld.com y.tld.com;
+	server_name x.tld.com;
 
 	index index.html;
 	root /var/www/html;
 
-	ssl_certificate /your/cert/path.crt;
-	ssl_certificate_key /your/key/path.key;
+	ssl_certificate /your/cert/x.tld.com.crt;
+	ssl_certificate_key /your/key/x.tld.com.key;
 	ssl_protocols TLSv1.2 TLSv1.3;
 	ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
 	
@@ -111,8 +111,6 @@ server {
     #  	proxy_set_header Host $host;
     #  	proxy_set_header X-Real-IP $remote_addr;
     #  	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	#	proxy_set_header X-Real-IP       $proxy_protocol_addr;
-	#	proxy_set_header X-Forwarded-For $proxy_protocol_addr;
     #}	
 }
 
