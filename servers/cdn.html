@@ -402,13 +402,13 @@
 <pre><code>server {
     listen 443 ssl http2  so_keepalive=on;
     listen [::]:443 ssl http2; 
-    server_name x.tld.com y.tld.com;
+    server_name x.tld.com;
 
     index index.html;
     root /var/www/html;
 
-    ssl_certificate /your/cert/path.crt;
-    ssl_certificate_key /your/key/path.key;
+    ssl_certificate /your/cert/x.tld.com.crt;
+    ssl_certificate_key /your/key/x.tld.com.key;
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
 
@@ -444,8 +444,6 @@
     #      proxy_set_header Host $host;
     #      proxy_set_header X-Real-IP $remote_addr;
     #      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    #    proxy_set_header X-Real-IP       $proxy_protocol_addr;
-    #    proxy_set_header X-Forwarded-For $proxy_protocol_addr;
     #}    
 }
 </code></pre><h5 id="restart-nginx">Restart Nginx</h5>
@@ -502,7 +500,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"next":{"title":"Authorization","level":"4.1","depth":1,"path":"usage/license.md","ref":"usage/license.md","articles":[]},"previous":{"title":"Security Settings","level":"3.3","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/cdn.md","mtime":"2023-01-10T08:26:53.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-10T08:27:19.695Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"next":{"title":"Authorization","level":"4.1","depth":1,"path":"usage/license.md","ref":"usage/license.md","articles":[]},"previous":{"title":"Security Settings","level":"3.3","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/cdn.md","mtime":"2023-01-10T12:25:14.609Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-10T12:25:44.670Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
