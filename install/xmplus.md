@@ -99,7 +99,21 @@ Reason: certificate generation need port 80 to be free, but since the frontend i
 
 ### allow xray(eg, 443) port through firewall
 
+
+DEBIAM/UBUNTU:
 ```
+apt install firewalld
+```
+
+CENTOS:
+```
+yum install firewalld
+```
+
+```
+systemctl enable firewalld
+systemctl start firewalld
+
 firewall-cmd --permanent --add-port=443/tcp
 firewall-cmd --permanent --add-port=443/udp
 firewall-cmd --reload
