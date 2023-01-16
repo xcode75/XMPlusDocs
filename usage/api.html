@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Other Settings · GitBook</title>
+        <title>User API · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="api.html" />
     
-    
-    <link rel="prev" href="knowledgebase.html" />
+    <link rel="prev" href="basic.html" />
     
 
     </head>
@@ -296,7 +294,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.8" data-path="basic.html">
+        <li class="chapter " data-level="4.8" data-path="basic.html">
             
                 <a href="basic.html">
             
@@ -309,7 +307,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.9" data-path="api.html">
+        <li class="chapter active" data-level="4.9" data-path="api.html">
             
                 <a href="api.html">
             
@@ -352,7 +350,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Other Settings</a>
+        <a href=".." >User API</a>
     </h1>
 </div>
 
@@ -367,51 +365,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="basic-settings">Basic Settings</h1>
-<h4 id="shared-account">Shared Account</h4>
-<p>As the name suggest, a shared account you want to display on user daehboard for free use.</p>
-<p>You can add the account in the Accounts section.</p>
-<h4 id="ideal-time-logout-s">Ideal time logout (s)</h4>
-<p>This is the time to automatically logout the user if inactive on the site. 0 (in seconds) is disabled for this option.</p>
-<h4 id="enable-languages">Enable Languages</h4>
-<p>The languages you want to translate the website into.</p>
-<h4 id="adding-other-language">Adding other language</h4>
-<p>Go to your site localization directory  such as: /www/wwwroot/tld.com/localization</p>
-<p>Make a copy of the en_US.php file to the language you want to translate.</p>
-<p>Example fa_IR.php for Persian</p>
-<p>Translate only the values and not the keys of the array.</p>
-<p>Do not translate any word in %%, eg, %name%.</p>
-<p>NB: eg, add in all the language files fa_IR</p>
+                                <h1 id="user-api">User API</h1>
+<h5 id="account-api">Account API</h5>
+<p>POST <code>{{apihost}}/api/v2/account</code></p>
+<h2 id="headers">HEADERS</h2>
+<p>XMPus-API-Token     md5(<enter_your_api_key>)</enter_your_api_key></p>
+<h2 id="json-body">JSON BODY</h2>
+<p>email  <enter_your_login_email></enter_your_login_email></p>
+<p>passwd  <enter_your_login_passwd></enter_your_login_passwd></p>
 <pre><code>&lt;?php
-$i18n[&apos;fa_IR&apos;] = array(
-    &apos;en_US&apos;     =&gt;     &apos;English (US)&apos;,
-    &apos;zh_CN&apos;     =&gt;     &apos;&#x4E2D;&#x6587; (CN)&apos;,
-    &apos;fa_IR&apos;     =&gt;     &apos;Persian (IR)&apos;,
-);
-</code></pre><blockquote>
-<p><code>Enable Language</code> Go to admin settings &gt; Basic settings and chose the language Persian and submit.</p>
-</blockquote>
-<h2 id="general-settings">General Settings</h2>
-<blockquote>
-<p><code>Site URL</code> : <a href="https://tld.com" target="_blank">https://tld.com</a>  this must be changed in /www/wwwroot/tld.com/config/config.php</p>
-<p><code>Sub URL</code>: <a href="https://tld.com/link/" target="_blank">https://tld.com/link/</a></p>
-<p><code>Password Salt</code>:  is a key added to user login password for security</p>
-<p><code>Hashing</code>: method for generating user login password</p>
-<p><code>Password Mode</code>:</p>
-</blockquote>
-<ul>
-<li>User defined + secured (must follow the password recommendation format to create password)</li>
-<li>User defined (whatever password the user chose)</li>
-</ul>
-<h3 id="checkin-settings---telegram">CheckIn Settings - Telegram</h3>
-<p>This is for users who bind their telegram account to the site can get free traffic and days added as set by the site admin.</p>
-<h4 id="restrict-settings">Restrict Settings</h4>
-<p>For who can access your site based on their ip and location.</p>
-<h4 id="fallback-config">Fallback Config</h4>
-<p>Refere to Xray documentation <a href="https://xtls.github.io/Xray-docs-next/config/features/fallback.html" target="_blank">Fallback</a></p>
-<h3 id="dns-rules">DNS Rules</h3>
-<p>Refere to Xray documentation <a href="https://xtls.github.io/Xray-docs-next/config/dns.html" target="_blank">DNS</a></p>
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL =&gt; &apos;https://www.xmplus.dev/api/v2/account&apos;,
+      CURLOPT_RETURNTRANSFER =&gt; true,
+      CURLOPT_ENCODING =&gt; &apos;&apos;,
+      CURLOPT_MAXREDIRS =&gt; 10,
+      CURLOPT_TIMEOUT =&gt; 0,
+      CURLOPT_FOLLOWLOCATION =&gt; true,
+      CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST =&gt; &apos;POST&apos;,
+      CURLOPT_POSTFIELDS =&gt;&apos;{
+        &quot;email&quot; : &quot;xxx@xmplus.com&quot;,
+        &quot;passwd&quot; : &quot;12345&quot;
+    }&apos;,
+      CURLOPT_HTTPHEADER =&gt; array(
+        &apos;XMPus-API-Token: 02485e4914f905def212ce4793d0xty&apos;,
+        &apos;Content-Type: application/json&apos;
+      ),
+    ));
 
+    $response = curl_exec($curl);
+    curl_close($curl);
+    echo $response;
+</code></pre><h3 id="register-api">Register API</h3>
+<p>POST <code>{{apihost}}/api/v2/register</code></p>
+<h2 id="headers">HEADERS</h2>
+<p>XMPus-API-Token     md5(<enter_your_api_key>)</enter_your_api_key></p>
+<h2 id="json-body">JSON BODY</h2>
+<p>email  <enter_your_login_email></enter_your_login_email></p>
+<p>passwd  <enter_your_login_passwd></enter_your_login_passwd></p>
+<p>aff  <enter_your_inviter_id></enter_your_inviter_id></p>
+<pre><code>&lt;?php
+    $curl = curl_init();
+    curl_setopt_array($curl, array(
+      CURLOPT_URL =&gt; &apos;https://www.xmplus.dev/api/v2/register&apos;,
+      CURLOPT_RETURNTRANSFER =&gt; true,
+      CURLOPT_ENCODING =&gt; &apos;&apos;,
+      CURLOPT_MAXREDIRS =&gt; 10,
+      CURLOPT_TIMEOUT =&gt; 0,
+      CURLOPT_FOLLOWLOCATION =&gt; true,
+      CURLOPT_HTTP_VERSION =&gt; CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST =&gt; &apos;POST&apos;,
+      CURLOPT_POSTFIELDS =&gt;&apos;{
+        &quot;email&quot; : &quot;xxx@xmplus.com&quot;,
+        &quot;passwd&quot; : &quot;12345&quot;,
+        &quot;aff : Q1KIgy&quot;
+    }&apos;,
+      CURLOPT_HTTPHEADER =&gt; array(
+        &apos;XMPus-API-Token: 02485e4914f905def212ce4793d0xty&apos;,
+        &apos;Content-Type: application/json&apos;
+      ),
+    ));
+
+    $response = curl_exec($curl);
+    curl_close($curl);
+    echo $response;
+</code></pre>
                                 
                                 </section>
                             
@@ -438,14 +457,10 @@ $i18n[&apos;fa_IR&apos;] = array(
 
             
                 
-                <a href="knowledgebase.html" class="navigation navigation-prev " aria-label="Previous page: KnowledgeBase">
+                <a href="basic.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Other Settings">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="api.html" class="navigation navigation-next " aria-label="Next page: User API">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -454,7 +469,7 @@ $i18n[&apos;fa_IR&apos;] = array(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Other Settings","level":"4.8","depth":1,"next":{"title":"User API","level":"4.9","depth":1,"path":"usage/api.md","ref":"usage/api.md","articles":[]},"previous":{"title":"KnowledgeBase","level":"4.7","depth":1,"path":"usage/knowledgebase.md","ref":"usage/knowledgebase.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/basic.md","mtime":"2023-01-16T13:00:32.116Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-16T13:00:57.479Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"User API","level":"4.9","depth":1,"previous":{"title":"Other Settings","level":"4.8","depth":1,"path":"usage/basic.md","ref":"usage/basic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/api.md","mtime":"2023-01-16T13:00:32.116Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-16T13:00:57.479Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
