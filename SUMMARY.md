@@ -25,5 +25,6 @@
    * [TelegramBot](usage/telegram.md)
    * [KnowledgeBase](usage/knowledgebase.md)
    * [Other Settings](usage/basic.md)
+   * [User API](usage/api.md)
 	
 
