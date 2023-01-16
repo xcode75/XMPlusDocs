@@ -5,15 +5,15 @@
 
 POST `{{apihost}}/api/v2/account`
 
-HEADERS
+###### HEADERS
 ------------------------------
-XMPus-API-Token     md5(<enter_your_api_key>)
+XMPus-API-Token     `md5(<enter_your_api_key>)`
 
-JSON BODY
+###### JSON BODY
 ------------------------------
-email  <enter_your_login_email>
+email  `<enter_your_login_email>`
 
-passwd  <enter_your_login_passwd>
+passwd  `<enter_your_login_passwd>`
 
 ```
 <?php
@@ -46,17 +46,17 @@ passwd  <enter_your_login_passwd>
 
 POST `{{apihost}}/api/v2/register`
 
-HEADERS
+###### HEADERS
 ------------------------------
-XMPus-API-Token     md5(<enter_your_api_key>)
+XMPus-API-Token     `md5(<enter_your_api_key>)`
 
-JSON BODY
+###### JSON BODY
 ------------------------------
-email  <enter_your_login_email>
+email  `<enter_your_login_email>`
 
-passwd  <enter_your_login_passwd>
+passwd  `<enter_your_login_passwd>`
 
-aff  <enter_your_inviter_ID>
+aff  `<enter_your_inviter_ID>`
 
 
 ```
