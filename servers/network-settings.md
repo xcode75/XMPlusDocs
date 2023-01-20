@@ -6,6 +6,7 @@
 
 ```json
 {
+  "transport" : "tcp",
   "acceptProxyProtocol": false,
   "header": {
     "type": "none"
@@ -17,6 +18,7 @@
 
 ```json
 {
+  "transport" : "tcp",
   "acceptProxyProtocol": false,
   "header": {
     "type": "http",
@@ -44,6 +46,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 
 ```json
 {
+  "transport" : "ws",
   "acceptProxyProtocol": false,
   "path": "/",
   "headers": {
@@ -65,6 +68,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 
 ```json
 {
+  "transport" : "h2",
   "acceptProxyProtocol": false,
   "host": "xray.com",
   "path": "/path",
@@ -85,6 +89,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 
 ```json
 {
+  "transport" : "grpc",
   "acceptProxyProtocol": false,
   "serviceName": "xray.com"
 }
@@ -107,6 +112,7 @@ Increase buffer size [quic udp problem](https://github.com/lucas-clemente/quic-g
 
 ```json
 {
+  "transport" : "quic",
   "acceptProxyProtocol": false,
   "security": "aes-128-gcm",
   "key": "password",
@@ -132,6 +138,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 
 ```json
 {
+  "transport" : "kcp",
   "acceptProxyProtocol": false,
   "congestion": false,
   "header": {
