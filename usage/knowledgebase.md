@@ -35,5 +35,5 @@ Editor adds copy button  (class='btn btn-dark m-1 copy-text'  data-clipboard-tex
 
 For example: copy the clash subscription link button
 ```
-<p>&nbsp;<a class="btn btn-dark m-1 copy-text" data-clipboard-text="%SubURL%?clash=1">copy subscription link</a></p>
+<p>&nbsp;<a class="btn btn-dark m-1 copy-text" data-clipboard-text="%SubUrl%clash=1">copy subscription link</a></p>
 ```
