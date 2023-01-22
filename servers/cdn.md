@@ -138,8 +138,8 @@ server {
 ##### Enable and Restart Nginx
 
 ```
-systemctl enable firewalld
-systemctl start firewalld
+systemctl enable nginx
+systemctl start nginx
 systemctl restart nginx
 ```
 
