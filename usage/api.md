@@ -74,7 +74,7 @@ aff  `<enter_your_inviter_ID>`
 	  CURLOPT_POSTFIELDS =>'{
 		"email" : "xxx@xmplus.com",
 		"passwd" : "12345",
-		"aff : Q1KIgy"
+		"aff" : "Q1KIgy"
 	}',
 	  CURLOPT_HTTPHEADER => array(
 		'XMPus-API-Token: 02485e4914f905def212ce4793d0xty',
