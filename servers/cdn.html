@@ -401,7 +401,9 @@
 8443
 </code></pre><p>Install Nginx on backend server</p>
 <p>CentOS&#xFF1A;</p>
-<pre><code> yum update
+<pre><code> yum -y update
+
+ yum install -y epel-release
 
  yum install -y nginx
 </code></pre><p>Ubuntu/Debian:</p>
@@ -414,64 +416,114 @@
 <p>cdn.conf</p>
 <h5 id="------------------------------grpc--tls----------------------------------">-------------------------------GRPC + TLS----------------------------------</h5>
 <pre><code>server {
-    listen 443 ssl http2  so_keepalive=on;
-    listen [::]:443 ssl http2; 
-    server_name x.tld.com;
-
+    listen 443 ssl http2 so_keepalive=on;
+    listen [::]:443 ssl http2;
+    server_name  x.tld.com;
     index index.html;
     root /var/www/html;
 
     ssl_certificate /your/cert/x.tld.com.crt;
     ssl_certificate_key /your/key/x.tld.com.key;
     ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
 
     client_header_timeout 52w;
     keepalive_timeout 52w;
 
-    location /Your server GRPC ServiceName { #Your server GRPC ServiceName
+    set_real_ip_from 103.21.244.0/22;
+    set_real_ip_from 103.22.200.0/22;
+    set_real_ip_from 103.31.4.0/22;
+    set_real_ip_from 104.16.0.0/12;
+    set_real_ip_from 108.162.192.0/18;
+    set_real_ip_from 131.0.72.0/22;
+    set_real_ip_from 141.101.64.0/18;
+    set_real_ip_from 162.158.0.0/15;
+    set_real_ip_from 172.64.0.0/13;
+    set_real_ip_from 173.245.48.0/20;
+    set_real_ip_from 188.114.96.0/20;
+    set_real_ip_from 190.93.240.0/20;
+    set_real_ip_from 197.234.240.0/22;
+    set_real_ip_from 198.41.128.0/17;
+    set_real_ip_from 2400:cb00::/32;
+    set_real_ip_from 2606:4700::/32;
+    set_real_ip_from 2803:f800::/32;
+    set_real_ip_from 2405:b500::/32;
+    set_real_ip_from 2405:8100::/32;
+    set_real_ip_from 2c0f:f248::/32;
+    set_real_ip_from 2a06:98c0::/29;
+
+    real_ip_header CF-Connecting-IP;    
+
+    location /grpc/Tun { #Your server GRPC ServiceName
         if ($content_type !~ &quot;application/grpc&quot;) {
             return 404;
         }
         client_max_body_size 0;
-        client_body_buffer_size 512k;
+        client_body_timeout 60m;
+        send_timeout 60m;
+        lingering_close always;
+
+        grpc_read_timeout 3m;
+        grpc_send_timeout 2m;
+        grpc_set_header Host $host;
         grpc_set_header X-Real-IP $remote_addr;
         grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        client_body_timeout 52w;
-        grpc_read_timeout 52w;
-        grpc_pass grpc://127.0.0.1:Your server settings Listening Port; #grpc_pass grpc://127.0.0.1:5500
-    }    
+        grpc_pass grpc://127.0.0.1:Your XMPlus Listening Port;   #grpc_pass grpc://127.0.0.1:5500
+    }     
 }
 </code></pre><h5 id="------------------------------websocket--tls------------------------------">-------------------------------Websocket + TLS------------------------------</h5>
 <pre><code>server {
-    listen 443 ssl http2  so_keepalive=on;
-    listen [::]:443 ssl http2; 
-    server_name x.tld.com;
-
+    listen 443 ssl http2 so_keepalive=on;
+    listen [::]:443 ssl http2;
+    server_name  x.tld.com;
     index index.html;
     root /var/www/html;
 
     ssl_certificate /your/cert/x.tld.com.crt;
     ssl_certificate_key /your/key/x.tld.com.key;
     ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_ciphers           ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
 
     client_header_timeout 52w;
     keepalive_timeout 52w;
 
-    location /Your server Websocket Path {  #Your server Websocket Path
-          if ($http_upgrade != &quot;websocket&quot;) {
-              return 404;
+    set_real_ip_from 103.21.244.0/22;
+    set_real_ip_from 103.22.200.0/22;
+    set_real_ip_from 103.31.4.0/22;
+    set_real_ip_from 104.16.0.0/12;
+    set_real_ip_from 108.162.192.0/18;
+    set_real_ip_from 131.0.72.0/22;
+    set_real_ip_from 141.101.64.0/18;
+    set_real_ip_from 162.158.0.0/15;
+    set_real_ip_from 172.64.0.0/13;
+    set_real_ip_from 173.245.48.0/20;
+    set_real_ip_from 188.114.96.0/20;
+    set_real_ip_from 190.93.240.0/20;
+    set_real_ip_from 197.234.240.0/22;
+    set_real_ip_from 198.41.128.0/17;
+    set_real_ip_from 2400:cb00::/32;
+    set_real_ip_from 2606:4700::/32;
+    set_real_ip_from 2803:f800::/32;
+    set_real_ip_from 2405:b500::/32;
+    set_real_ip_from 2405:8100::/32;
+    set_real_ip_from 2c0f:f248::/32;
+    set_real_ip_from 2a06:98c0::/29;
+
+    real_ip_header CF-Connecting-IP;    
+
+    location / Your server Websocket Path {  #Your server Websocket Path
+        if ($http_upgrade != &quot;websocket&quot;) {
+            return 404;
         }
-          proxy_redirect off;
-          proxy_pass http://127.0.0.1:Your XMPlus Listening Port; #proxy_pass http://127.0.0.1:5500
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection &quot;upgrade&quot;;
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }    
+        proxy_redirect off;
+        proxy_pass http://127.0.0.1:Your XMPlus Listening Port; #proxy_pass http://127.0.0.1:5500
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;upgrade&quot;;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
 }
 </code></pre><h5 id="enable-and-restart-nginx">Enable and Restart Nginx</h5>
 <pre><code>systemctl enable nginx
@@ -482,15 +534,44 @@ systemctl restart nginx
 </li>
 <li><p>Set your XMPlus Listening IP to 127.0.0.1</p>
 </li>
+<li><p>Set your XMPlus Listening Port cannot be same as Nginx port(server port)</p>
+</li>
+<li><p>Set your XMPlus Cert Mode to None</p>
+</li>
 </ol>
 <h5 id="restart-xmplus-backend">Restart XMPlus backend</h5>
 <blockquote>
 <p><code>xmplus restart</code></p>
 </blockquote>
 <h5 id="enable-cloudflareproxied-cdn">Enable Cloudflare(proxied) CDN</h5>
-<p>Option 1. Turn on from server settings if you have already added zone.</p>
-<p>Option 2. Turn on from cloudflare dns tab for the host.</p>
+<p>Turn on from cloudflare cdm proxy.</p>
+<p>Arvancloud CDN(Only support WS and not GRPC) IP Range</p>
+<pre><code>    set_real_ip_from 185.143.232.0/22;
+    set_real_ip_from 92.114.16.80/28;
+    set_real_ip_from 2.146.0.0/28;
+    set_real_ip_from 46.224.2.32/29;
+    set_real_ip_from 83.123.255.56/31;
+    set_real_ip_from 188.229.116.16/29;
+    set_real_ip_from 164.138.128.28/31;
+    set_real_ip_from 94.182.182.28/30;
+    set_real_ip_from 185.17.115.176/30;
+    set_real_ip_from 5.213.255.36/31;
+    set_real_ip_from 185.228.238.0/28;
+    set_real_ip_from 94.182.153.24/29;
+    set_real_ip_from 94.101.182.0/27;
+    set_real_ip_from 158.255.77.238/31;
+    set_real_ip_from 81.12.28.16/29;
+    set_real_ip_from 176.65.192.202/31;
+    set_real_ip_from 2.144.3.128/28;
+    set_real_ip_from 89.45.48.64/28;
+    set_real_ip_from 37.32.16.0/27;
+    set_real_ip_from 37.32.17.0/27;
+    set_real_ip_from 37.32.18.0/27;
+    set_real_ip_from 37.32.19.0/27;
+    set_real_ip_from 185.215.232.0/22;
 
+    real_ip_header ar-real-ip;
+</code></pre>
                                 
                                 </section>
                             
@@ -533,7 +614,7 @@ systemctl restart nginx
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"next":{"title":"Authorization","level":"4.1","depth":1,"path":"usage/license.md","ref":"usage/license.md","articles":[]},"previous":{"title":"Security Settings","level":"3.3","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/cdn.md","mtime":"2023-01-23T18:15:42.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-23T18:16:16.239Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"next":{"title":"Authorization","level":"4.1","depth":1,"path":"usage/license.md","ref":"usage/license.md","articles":[]},"previous":{"title":"Security Settings","level":"3.3","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/cdn.md","mtime":"2023-01-30T16:01:17.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-30T16:01:44.198Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
