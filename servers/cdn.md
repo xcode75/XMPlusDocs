@@ -58,8 +58,8 @@ cdn.conf
 #### -------------------------------GRPC/Websocket----------------------------------
 ```
 server {
-    listen 80;
-    listen [::]:80;
+    listen 8080;
+    listen [::]:8080;
     server_name  x.tld.com;
     index index.html;
     root /var/www/html;
