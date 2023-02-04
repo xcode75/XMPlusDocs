@@ -5,18 +5,7 @@ NB: Server port and listening port must be the same, unless you are using other 
 ### TLS/XTLS Settings (XTLS currently only supports three transport(Network) methods: TCP, KCP, and DomainSocket.) 
 
 
-### TLS Settings
-
-```json
-{
-  "serverName": "xmplus.dev",
-  "rejectUnknownSni": true,
-  "allowInsecure": false,
-  "fingerprint": "chrome"
-}
-```
-
-### XTLS Settings
+### TLS/XTLS Settings
 
 ```json
 {
@@ -44,7 +33,7 @@ Whether to allow insecure connections (client only). The default value is false.
 
 When the value is true, the server will reject the TLS handshake if the SNI received by the server does not match the domain name of the certificate. The default is false.
 
-> `flow`:  none | xtls-rprx-direct | xtls-rprx-origin | xtls-rprx-origin-udp443 | xtls-rprx-vision | xtls-rprx-vision,none
+> `flow`:  none | xtls-rprx-direct | xtls-rprx-origin | xtls-rprx-origin-udp443 | xtls-rprx-vision
 
 Flow control mode, used to select the XTLS algorithm. 
 

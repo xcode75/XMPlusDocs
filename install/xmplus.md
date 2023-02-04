@@ -92,6 +92,7 @@ Nodes:
 
 
 ### Importan Notice
+
 Do not install backend on same server as frontend if you intend to enable tls on the backend.
 
 Reason: certificate generation need port 80 to be free, but since the frontend is running on port 80/443, backend will panic, and cannot start.
@@ -119,7 +120,7 @@ firewall-cmd --permanent --add-port=443/udp
 firewall-cmd --reload
 ```
 
-### Backend Transit(Tunnel) (Node A -> Transit -> Node B)
+### Backend Transit(Relay) Node A -> Transit -> Node B
 
 The source and target nodes must have the XMPlus backend installed
 

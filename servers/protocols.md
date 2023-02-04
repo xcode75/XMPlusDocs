@@ -17,7 +17,6 @@
 | ----------| ---------- |
 | TCP | √ |
 | TCP + HTTP | √ |
-| TCP + TLS | √ |
 | WS | √ |
 | WS + TLS | √ |
 | GRPC + TLS | √ |

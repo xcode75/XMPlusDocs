@@ -16,7 +16,7 @@ Select the environment installation method using LNMP to check the following inf
 ☑️ Nginx
 ☑️ MySQL
 ☑️ PHP 7.4
-☑️ PHPMYADMIN
+☑️ phpMyAdmin
 
 Choose Fast to compile and install.
 
@@ -40,44 +40,49 @@ The following commands need to be executed in the site directory.
 ### Delete the files in the directory
 ```
 chattr -i .user.ini
+
 rm -rf .htaccess 404.html index.html .user.ini
 ```
 
 ### Execute the command to install XMPlus
 ```
 cd /www/wwwroot/tld.com
+
 wget https://github.com/xcode75/XManagerPlus/releases/download/v20230202/XMPlus.zip
+
 unzip XMPlus.zip
+
 chmod +x install.sh
+
 ./install.sh
 ```
 
-aaPanel  > Database > copy database root password。
+aaPanel  > Databases > Root password
 
-Login to phpmyadmin with username root and your database root password
+Login to phpMyAdmin with username root and your database root password
 
 Server connection collation: utf8mb4_unicode_ci
 
 Create a new database with: utf8mb4_unicode_ci 
 
-- Edit configuration /www/wwwroot/tld.com/config/config.php 
-
-  - fill in (baseURL), your site address
-
-  -  You can change admin login path
-  
-  - fill in your database information(use root as username and root password in config.php)
-
-
-- Import database.sql with phpmyadmin  only.
+- Import database.sql with phpMyAdmin.
 
   - file path  /www/wwwroot/tld.com/database/database.sql  
   
   - NB: Do not use the aapanal panel to import sql
+  
+
+- Edit configuration /www/wwwroot/tld.com/config/config.php 
+
+  - fill in baseURL, your site address. eg, https://tld.com
+
+  -  You can change admin login path to your preferred path. Must start with /
+  
+  - fill in your database information(use root as username and root password in config.php)
 
 ### 6.Configure site directory and pseudo-static
 
-Edit the added site after adding it > Site directory > Running directory choose /public and save。
+Edit the added site > Conf > Site directory > Running directory choose /public and save。
 
 After the addition is complete, edit the added site > URL rewrite to fill in the pseudo-static information.
 
@@ -86,6 +91,12 @@ location / {
     try_files $uri /index.php$is_args$args;
 }
 ```
+
+### 7. Add SSL to website
+
+Edit the added site  > Conf > SSL 
+
+Check site domain and apply for certificate, Enable Force HTTPS
 
 ### Restart nginx
 

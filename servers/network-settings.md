@@ -23,9 +23,9 @@
   "header": {
     "type": "http",
     "request": {
-      "path": "/",
+      "path": "/xmplus",
       "headers": {
-        "Host": "xray.com"
+        "Host": "x.tld.com"
       }
     }
   }
@@ -48,9 +48,9 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 {
   "transport" : "ws",
   "acceptProxyProtocol": false,
-  "path": "/",
+  "path": "/xmplus",
   "headers": {
-    "Host": "xray.com"
+    "Host": "x.tld.com"
   }
 }
 ```
@@ -70,8 +70,8 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 {
   "transport" : "h2",
   "acceptProxyProtocol": false,
-  "host": "xray.com",
-  "path": "/path",
+  "host": "x.tld.com",
+  "path": "/xmplus",
 }
 ```
 > `acceptProxyProtocol:` true | false
@@ -91,7 +91,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 {
   "transport" : "grpc",
   "acceptProxyProtocol": false,
-  "serviceName": "xray.com"
+  "serviceName": "xmplus"
 }
 ```
 
@@ -114,10 +114,10 @@ Increase buffer size [quic udp problem](https://github.com/lucas-clemente/quic-g
 {
   "transport" : "quic",
   "acceptProxyProtocol": false,
-  "security": "aes-128-gcm",
-  "key": "password",
+  "security": "none",
+  "key": "",
   "header": {
-    "type": "dtls"
+    "type": "none"
   }
 }
 ```
@@ -142,9 +142,9 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   "acceptProxyProtocol": false,
   "congestion": false,
   "header": {
-    "type": "dtls"
+    "type": "none"
   },
-  "seed": "password"
+  "seed": ""
 }
 ```
 > `acceptProxyProtocol:` true | false
