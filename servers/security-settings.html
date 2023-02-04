@@ -370,15 +370,7 @@
                                 <h1 id="security-settings">Security Settings</h1>
 <p>NB: Server port and listening port must be the same, unless you are using other method such as nginx(fill nginx port for server port) to process tls.</p>
 <h3 id="tlsxtls-settings-xtls-currently-only-supports-three-transportnetwork-methods-tcp-kcp-and-domainsocket">TLS/XTLS Settings (XTLS currently only supports three transport(Network) methods: TCP, KCP, and DomainSocket.)</h3>
-<h3 id="tls-settings">TLS Settings</h3>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;serverName&quot;</span>: <span class="hljs-string">&quot;xmplus.dev&quot;</span>,
-  <span class="hljs-string">&quot;rejectUnknownSni&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">&quot;allowInsecure&quot;</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">&quot;fingerprint&quot;</span>: <span class="hljs-string">&quot;chrome&quot;</span>
-}
-</code></pre>
-<h3 id="xtls-settings">XTLS Settings</h3>
+<h3 id="tlsxtls-settings">TLS/XTLS Settings</h3>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;serverName&quot;</span>: <span class="hljs-string">&quot;xmplus.dev&quot;</span>,
   <span class="hljs-string">&quot;rejectUnknownSni&quot;</span>: <span class="hljs-literal">true</span>,
@@ -404,7 +396,7 @@
 </blockquote>
 <p>When the value is true, the server will reject the TLS handshake if the SNI received by the server does not match the domain name of the certificate. The default is false.</p>
 <blockquote>
-<p><code>flow</code>:  none | xtls-rprx-direct | xtls-rprx-origin | xtls-rprx-origin-udp443 | xtls-rprx-vision | xtls-rprx-vision,none</p>
+<p><code>flow</code>:  none | xtls-rprx-direct | xtls-rprx-origin | xtls-rprx-origin-udp443 | xtls-rprx-vision</p>
 </blockquote>
 <p>Flow control mode, used to select the XTLS algorithm. </p>
 <p>NB: xtls-rprx-vision support only tls.</p>
@@ -452,7 +444,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security Settings","level":"3.3","depth":1,"next":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"path":"servers/cdn.md","ref":"servers/cdn.md","articles":[]},"previous":{"title":"Network Settings","level":"3.2","depth":1,"path":"servers/network-settings.md","ref":"servers/network-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/security-settings.md","mtime":"2023-02-02T10:47:55.293Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T10:48:25.573Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Security Settings","level":"3.3","depth":1,"next":{"title":"Nginx + Cloudflare CDN","level":"3.4","depth":1,"path":"servers/cdn.md","ref":"servers/cdn.md","articles":[]},"previous":{"title":"Network Settings","level":"3.2","depth":1,"path":"servers/network-settings.md","ref":"servers/network-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/security-settings.md","mtime":"2023-02-04T09:03:21.811Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-04T09:03:48.803Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
