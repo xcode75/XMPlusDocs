@@ -144,7 +144,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   "header": {
     "type": "none"
   },
-  "seed": ""
+  "seed": "password"
 }
 ```
 > `acceptProxyProtocol:` true | false
