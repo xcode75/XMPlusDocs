@@ -61,6 +61,8 @@ mv .user.ini public
 cd /www/wwwroot/tld.com/public
 
 chattr +i .user.ini
+
+rm -rf install.sh XMPlus.zip
 ```
 
 aaPanel  > Databases > Root password
