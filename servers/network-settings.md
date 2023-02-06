@@ -71,7 +71,7 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   "transport" : "h2",
   "acceptProxyProtocol": false,
   "host": "x.tld.com",
-  "path": "/xmplus",
+  "path": "/xmplus"
 }
 ```
 > `acceptProxyProtocol:` true | false
