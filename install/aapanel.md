@@ -62,6 +62,8 @@ cd /www/wwwroot/tld.com/public
 
 chattr +i .user.ini
 
+cd /www/wwwroot/tld.com
+
 rm -rf install.sh XMPlus.zip
 ```
 
