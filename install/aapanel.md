@@ -39,30 +39,19 @@ The following commands need to be executed in the site directory.
 
 ### Delete the files in the directory
 ```
-rm -rf .htaccess 404.html index.html 
+chattr -i .user.ini
+rm -rf .htaccess 404.html index.html .user.ini
 ```
 
 ### Execute the command to install XMPlus
 ```
 cd /www/wwwroot/tld.com
 
-chattr -i .user.ini
-
 wget https://github.com/xcode75/XManagerPlus/releases/download/v20230204/XMPlus.zip
 
 unzip XMPlus.zip
 
-chmod +x install.sh
-
 ./install.sh
-
-mv .user.ini public
-
-cd /www/wwwroot/tld.com/public
-
-chattr +i .user.ini
-
-cd /www/wwwroot/tld.com
 
 rm -rf install.sh XMPlus.zip
 ```
