@@ -559,7 +559,12 @@ firewall-cmd --permanent --add-port=443/tcp
 firewall-cmd --permanent --add-port=443/udp
 firewall-cmd --reload
 </code></pre><h3 id="backend-transitrelay-client---node-a---node-b---destinationwwwgooglecom">Backend Transit(Relay) Client -&gt; Node A -&gt; Node B -&gt; Destination(www.google.com)</h3>
-<p>The source and target nodes must have the XMPlus backend installed</p>
+<p>NOTE:</p>
+<blockquote>
+<p>To use transit both servers must be working normally and be able to connect directly.</p>
+<p>Node B cannot use nginx reverse proxy and lsitening ip 127.0.0.1</p>
+</blockquote>
+<p>Node A and B must have the XMPlus backend installed</p>
 <p>Node A -&gt; Transit Type -&gt; XMPlus backend</p>
 <p>Node A -&gt; Transit Server -&gt; select target Node B</p>
 
@@ -605,7 +610,7 @@ firewall-cmd --reload
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Protocols","level":"3.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-02-10T18:59:36.048Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-10T19:00:11.746Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backend Installation - Backend","level":"2.2","depth":1,"next":{"title":"Protocols","level":"3.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2023-02-10T19:03:06.219Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-10T19:03:34.361Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
