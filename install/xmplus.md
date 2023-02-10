@@ -120,10 +120,10 @@ firewall-cmd --permanent --add-port=443/udp
 firewall-cmd --reload
 ```
 
-### Backend Transit(Relay) Node A -> Transit -> Node B
+### Backend Transit(Relay) Client -> Node A -> Node B -> Destination(www.google.com)
 
 The source and target nodes must have the XMPlus backend installed
 
 Node A -> Transit Type -> XMPlus backend
 
-Node A -> Transit Server -> select target node B
+Node A -> Transit Server -> select target Node B
