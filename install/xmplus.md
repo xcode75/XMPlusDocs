@@ -122,7 +122,14 @@ firewall-cmd --reload
 
 ### Backend Transit(Relay) Client -> Node A -> Node B -> Destination(www.google.com)
 
-The source and target nodes must have the XMPlus backend installed
+NOTE:
+
+ > To use transit both servers must be working normally and be able to connect directly.
+ 
+ > Node B cannot use nginx reverse proxy and lsitening ip 127.0.0.1
+
+
+Node A and B must have the XMPlus backend installed
 
 Node A -> Transit Type -> XMPlus backend
 
