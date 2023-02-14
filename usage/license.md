@@ -10,6 +10,6 @@ Support unlimited subdomain authorization for the domain, unlimited access and u
 
 accept crypto only
 
-> You can only change domain only once if blocked for free. After that 25 USDT for new authorization if blocked. Must provide proof is blocked else must pay full amount.
+> You can only change domain only once if blocked for free. After that 30 USDT for new authorization if blocked. Must provide proof is blocked else must pay full amount.
 
 if you want to buy authorization(onetime payment and permanent use). Purchase authorization contact [@xcode75](https://t.me/xcode75)
