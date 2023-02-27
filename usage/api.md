@@ -1,88 +1,141 @@
-# User API
+# Client
+
+##### Client API
+
+| URL            | Method  | Description                    |
+|----------------|---------|-----------------------------------|
+| /token         | POST    | [Get Token](#1Get Token)    |
+| /servers       | POST    | [login Account](#2Get Servers)       |
+| /stats         | POST    | [Account Statistics](#3Get Stats)  |
 
 
-##### Account API
+### 1.Get Token
 
-POST `{{apihost}}/api/v2/account`
+- POST `{{apihost}}/api/v2/client/token`
 
-###### HEADERS
-------------------------------
-XMPus-API-Token     `md5(<enter_your_api_key>)`
+- request headers
 
-###### JSON BODY
-------------------------------
-email  `<enter_your_login_email>`
+	> XMPus-API-Token: `md5(<your_api_key>)`
+	> Content-Type:    `application/json`
 
-passwd  `<enter_your_login_passwd>`
+- request parameters
 
-```
-<?php
-	$curl = curl_init();
-	curl_setopt_array($curl, array(
-	  CURLOPT_URL => 'https://www.xmplus.dev/api/v2/account',
-	  CURLOPT_RETURNTRANSFER => true,
-	  CURLOPT_ENCODING => '',
-	  CURLOPT_MAXREDIRS => 10,
-	  CURLOPT_TIMEOUT => 0,
-	  CURLOPT_FOLLOWLOCATION => true,
-	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	  CURLOPT_CUSTOMREQUEST => 'POST',
-	  CURLOPT_POSTFIELDS =>'{
-		"email" : "xxx@xmplus.com",
-		"passwd" : "12345"
-	}',
-	  CURLOPT_HTTPHEADER => array(
-		'XMPus-API-Token: 02485e4914f905def212ce4793d0xty',
-		'Content-Type: application/json'
-	  ),
-	));
-
-	$response = curl_exec($curl);
-	curl_close($curl);
-	echo $response;
+```json
+ {
+  "email": "xmplus@xmplus.dev",
+  "password": "Ax345@78",
+}
 ```
 
-### Register API
+| Parameter name  |  Type  | Required  | Description   |
+|----------|--------|-----|------|
+| email    | string | ✔︎  | Email |
+| password | string | ✔︎  | Login Password   |
 
-POST `{{apihost}}/api/v2/register`
+- successful return example `json`
 
-###### HEADERS
-------------------------------
-XMPus-API-Token     `md5(<enter_your_api_key>)`
-
-###### JSON BODY
-------------------------------
-email  `<enter_your_login_email>`
-
-passwd  `<enter_your_login_passwd>`
-
-aff  `<enter_your_inviter_ID>`
-
-
+```json
+{
+    "ret": 1,
+    "status": "success",
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MTE4NSwiZXhwIjoxNjc3NzEzOTg1LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.1e4Vwk1XgVtmDHoOIVRFmcJPlE7t9Q27-opiWWhXdFE"
+    }
+}
 ```
-<?php
-	$curl = curl_init();
-	curl_setopt_array($curl, array(
-	  CURLOPT_URL => 'https://www.xmplus.dev/api/v2/register',
-	  CURLOPT_RETURNTRANSFER => true,
-	  CURLOPT_ENCODING => '',
-	  CURLOPT_MAXREDIRS => 10,
-	  CURLOPT_TIMEOUT => 0,
-	  CURLOPT_FOLLOWLOCATION => true,
-	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	  CURLOPT_CUSTOMREQUEST => 'POST',
-	  CURLOPT_POSTFIELDS =>'{
-		"email" : "xxx@xmplus.com",
-		"passwd" : "12345",
-		"aff" : "Q1KIgy"
-	}',
-	  CURLOPT_HTTPHEADER => array(
-		'XMPus-API-Token: 02485e4914f905def212ce4793d0xty',
-		'Content-Type: application/json'
-	  ),
-	));
 
-	$response = curl_exec($curl);
-	curl_close($curl);
-	echo $response;
+### 2.Get Servers
+
+- POST `{{apihost}}/api/v2/client/servers`
+
+- request headers
+
+	> XMPus-API-Token: `md5(<your_api_key>)`
+	> Content-Type:    `application/json`
+
+- request parameters
+
+```json
+{
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MDIyNCwiZXhwIjoxNjc3NzEzMDI0LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.mzxFglyYi7euqfRRewEQEBLqIH7OpF1HdWLRNUabHV0"
+}
+```
+
+| Parameter name  |  Type  | Required  | Description   |
+|----------|--------|-----|------|
+| token           | string    |    ✔︎   | Authentication token |
+
+- successful return example `json`
+
+```json
+{
+    "ret": 1,
+    "status": "success",
+    "servers": [
+        {
+            "type": "vmess",
+            "remark": "🇬🇧 UK | X1.5 | AMZ",
+            "address": "ukser.gbxcloud.com",
+            "port": 443,
+            "network": "tcp",
+            "password": "9d6023b1-0948-4827-b9e9-9849b0fb5062",
+            "alterid": 0,
+            "encryption": "auto",
+            "sni": "ukser.gbxcloud.com",
+            "security": "",
+            "allowinsecure": true,
+            "header": "none",
+            "fingerprint": "chrome",
+            "uri": "vmess://eyJ2IjoiMiIsInBzIjoiXHVkODNjXHVkZGVjXHVkODNjXHVkZGU3IFVLIHwgWDEuNSB8IEFNWiIsImFkZCI6InVrc2VyLmdieGNsb3VkLmNvbSIsInBvcnQiOiI0NDMiLCJpZCI6IjlkNjAyM2IxLTA5NDgtNDgyNy1iOWU5LTk4NDliMGZiNTA2MiIsImFpZCI6IjAiLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsImhvc3QiOiIiLCJwYXRoIjoiIn0="
+        }
+    ]
+}
+```
+
+### 3. Get Stats
+
+- POST `{{apihost}}/api/v2/client/stats`
+
+- request headers
+
+	> XMPus-API-Token: `md5(<your_api_key>)`
+	> Content-Type:    `application/json`
+
+- request parameters
+
+```json
+{
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MDIyNCwiZXhwIjoxNjc3NzEzMDI0LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.mzxFglyYi7euqfRRewEQEBLqIH7OpF1HdWLRNUabHV0"
+}
+```
+
+| Parameter name  |  Type  | Required  | Description   |
+|----------|--------|-----|------|
+| token           | string    |    ✔︎   | Authentication token |
+
+- successful return example `json`
+
+```json
+{
+    "ret": 1,
+    "status": "success",
+    "info": {
+        "username": "admin",
+        "email": "webmaster@xmplus.dev",
+        "money": "USD 0.00",
+        "commission": "USD 0.00",
+        "iplimit": 2,
+        "onlineip": "0/2",
+        "speedlimit": "1 Gb/s",
+        "expire_at": "2220-04-15 08:18:51",
+        "group": "VIP1"
+    },
+    "data": {
+        "package": null,
+        "used": "0 B",
+        "remaining": "100 G",
+        "total": "100 G"
+    },
+    "sublink": "https://www.xmplus.dev/link/Zb0sxRcR5LfihSpX1Bvx?config=1"
+}
 ```

@@ -13,6 +13,7 @@ NB: Server port and listening port must be the same, unless you are using other 
   "rejectUnknownSni": true,
   "allowInsecure": false,
   "fingerprint": "chrome",
+  "sni": "xmplus.dev",
   "flow": "none"
 }
 ```
@@ -33,7 +34,11 @@ Whether to allow insecure connections (client only). The default value is false.
 
 When the value is true, the server will reject the TLS handshake if the SNI received by the server does not match the domain name of the certificate. The default is false.
 
-> `flow`:  none | xtls-rprx-direct | xtls-rprx-origin | xtls-rprx-origin-udp443 | xtls-rprx-vision
+> `sni`: server name identification, use for cert verification on client.
+
+Specifies the domain name of the server-side certificate, useful when the connection is established by IP.
+
+> `flow`:  none | xtls-rprx-direct | xtls-rprx-vision   (optional)
 
 Flow control mode, used to select the XTLS algorithm. 
 

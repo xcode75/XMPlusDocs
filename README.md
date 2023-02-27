@@ -4,24 +4,33 @@ description: An Xray frontend and backend.
 
 # About XMPlus
 
-XMPlus frontend/backend manager.
-
 An Xray-based frontend and backend manager that supports Vless, Vmess, Trojan, Shadowsocks protocols.
 
-## Install XMPlus
+# Table of contents
+
+
+## XMPlus Installation
 
 * [Frontend Installation - Frontend](install/aapanel.md)
 
-* [Backend Installation - Backend](install/xmplus.md)
+## Backend Installation
 
-## Front-end node settings
+* [XrayR Backend Installation - Backend](install/xrayr.md)
+	* [XrayR Frontend Network Settings](servers/xrayr-network-settings.md)
+	
+* [XMPlus Backend Installation - Backend](install/xmplus.md)
+	* [XMPlus Frontend Network Settings](servers/xmplus-network-settings.md)
+
+## Frontend Server settings
 
    * [Protocols](servers/protocols.md)
-   * [Network Settings](servers/network-settings.md)
    * [Security Settings](servers/security-settings.md)
-   * [Nginx + Cloudflare CDN](servers/cdn.md)
+   
+## Nginx + CDN
 
-## Front-end usage settings
+   * [Nginx + CDN](servers/cdn.md)
+
+## Frontend usage settings
 
    * [Authorization](usage/license.md)
    * [LiveChat](usage/livechat.md)
@@ -31,4 +40,7 @@ An Xray-based frontend and backend manager that supports Vless, Vmess, Trojan, S
    * [TelegramBot](usage/telegram.md)
    * [KnowledgeBase](usage/knowledgebase.md)
    * [Other Settings](usage/basic.md)
+   
+## API Usage
+
    * [User API](usage/api.md)

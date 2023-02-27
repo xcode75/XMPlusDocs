@@ -18,7 +18,7 @@ The XMPlus backend is a customized version of XRayR (one server supports multipl
 | Server Speedlimit     | √     |  √    |   √    |  √   |    √     |
 | User Speedlimit     | √     |  √    |   √    |  √   |    √     |
 | Customize DNS       | √     |  √    |   √    |  √   |    √     |
-| Server Relay       | √     |  √    |   √    |  √   |    X     |
+| Server Transit       | √     |  √    |   √    |  √   |    X     |
 
 
 ### one-click installation

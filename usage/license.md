@@ -1,6 +1,6 @@
 # XMPlus Authorization
 
-XMPlus supports free use. 20 user limit, 5 nodes, 2 payment systems
+XMPlus supports free use. 30 user limit, 10 nodes
 
 ##### Authorization
 
