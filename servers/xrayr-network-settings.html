@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Security Settings · GitBook</title>
+        <title>XrayR Frontend Network Settings · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cdn.html" />
+    <link rel="next" href="../install/xmplus.html" />
     
     
-    <link rel="prev" href="protocols.html" />
+    <link rel="prev" href="../install/xrayr.html" />
     
 
     </head>
@@ -147,7 +147,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="xrayr-network-settings.html">
+        <li class="chapter active" data-level="3.1.1" data-path="xrayr-network-settings.html">
             
                 <a href="xrayr-network-settings.html">
             
@@ -217,7 +217,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="security-settings.html">
+        <li class="chapter " data-level="4.2" data-path="security-settings.html">
             
                 <a href="security-settings.html">
             
@@ -411,7 +411,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Security Settings</a>
+        <a href=".." >XrayR Frontend Network Settings</a>
     </h1>
 </div>
 
@@ -426,45 +426,131 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="security-settings">Security Settings</h1>
-<p>NB: Server port and listening port must be the same, unless you are using other method such as nginx(fill nginx port for server port) to process tls.</p>
-<h3 id="tlsxtls-settings-xtls-currently-only-supports-three-transportnetwork-methods-tcp-kcp-and-domainsocket">TLS/XTLS Settings (XTLS currently only supports three transport(Network) methods: TCP, KCP, and DomainSocket.)</h3>
-<h3 id="tlsxtls-settings">TLS/XTLS Settings</h3>
+                                <h1 id="xrayr-backend-network-settings">XrayR Backend Network Settings</h1>
+<h3 id="server-transportnetwork-settings">Server Transport(Network) Settings</h3>
+<h2 id="tcp">TCP</h2>
 <pre><code class="lang-json">{
-  <span class="hljs-string">&quot;serverName&quot;</span>: <span class="hljs-string">&quot;xmplus.dev&quot;</span>,
-  <span class="hljs-string">&quot;rejectUnknownSni&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-string">&quot;allowInsecure&quot;</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">&quot;fingerprint&quot;</span>: <span class="hljs-string">&quot;chrome&quot;</span>,
-  <span class="hljs-string">&quot;sni&quot;</span>: <span class="hljs-string">&quot;xmplus.dev&quot;</span>,
-  <span class="hljs-string">&quot;flow&quot;</span>: <span class="hljs-string">&quot;none&quot;</span>
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;tcp&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;header&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;none&quot;</span>
+  }
+}
+</code></pre>
+<h2 id="tcp--http-obfuscation">TCP + HTTP (obfuscation)</h2>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;tcp&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;header&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;http&quot;</span>,
+    <span class="hljs-string">&quot;request&quot;</span>: {
+      <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;/xmplus&quot;</span>,
+      <span class="hljs-string">&quot;headers&quot;</span>: {
+        <span class="hljs-string">&quot;Host&quot;</span>: <span class="hljs-string">&quot;x.tld.com&quot;</span>
+      }
+    }
+  }
 }
 </code></pre>
 <blockquote>
-<p><code>serverName</code>: your certificate domain address</p>
+<p><code>acceptProxyProtocol:</code> true | false</p>
 </blockquote>
-<p>Specifies the domain name of the server-side certificate, useful when the connection is established by IP.</p>
+<p>It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don&#x2019;t understand it, please ignore</p>
 <blockquote>
-<p><code>fingerprint</code>: &quot;&quot; | &quot;chrome&quot; | &quot;firefox&quot; | &quot;safari&quot; | &quot;randomized&quot;</p>
+<p><code>path</code>: Http Header path, The default value is /</p>
+<p><code>Host</code>: Http Header host</p>
+<p>Transport method based on tcp <a href="https://xtls.github.io/Xray-docs-next/config/transports/tcp.html" target="_blank">TCP Method</a></p>
 </blockquote>
-<p>This parameter is used to configure the fingerprint of the specified TLS Client Hello. When its value is empty, it means that this function is not enabled. When enabled, Xray will simulate a TLS fingerprint via the uTLS library, or generate it randomly.</p>
+<h2 id="ws">WS</h2>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;ws&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;/xmplus&quot;</span>,
+  <span class="hljs-string">&quot;headers&quot;</span>: {
+    <span class="hljs-string">&quot;Host&quot;</span>: <span class="hljs-string">&quot;x.tld.com&quot;</span>
+  }
+}
+</code></pre>
 <blockquote>
-<p><code>allowInsecure</code>  true | false</p>
+<p><code>acceptProxyProtocol:</code> true | false</p>
 </blockquote>
-<p>Whether to allow insecure connections (client only). The default value is false.</p>
+<p>It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don&#x2019;t understand it, please ignore</p>
 <blockquote>
-<p><code>rejectUnknownSni</code> true | false</p>
+<p><code>path</code>: The HTTP protocol path used by WebSocket, the default value is &quot;/&quot;.</p>
+<p><code>Host</code>: Custom HTTP header host</p>
+<p>Transport method based on ws <a href="https://xtls.github.io/Xray-docs-next/config/transports/websocket.html" target="_blank">WS Method</a></p>
 </blockquote>
-<p>When the value is true, the server will reject the TLS handshake if the SNI received by the server does not match the domain name of the certificate. The default is false.</p>
+<h2 id="h2">H2</h2>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;h2&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;host&quot;</span>: <span class="hljs-string">&quot;x.tld.com&quot;</span>,
+  <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;/xmplus&quot;</span>
+}
+</code></pre>
 <blockquote>
-<p><code>sni</code>: server name identification, use for cert verification on client.</p>
+<p><code>acceptProxyProtocol:</code> true | false</p>
 </blockquote>
-<p>Specifies the domain name of the server-side certificate, useful when the connection is established by IP.</p>
+<p>It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don&#x2019;t understand it, please ignore</p>
 <blockquote>
-<p><code>flow</code>:  none | xtls-rprx-direct | xtls-rprx-vision   (optional)</p>
+<p><code>path</code>: HTTP path, starting with /, client and server must be the same.</p>
+<p><code>Host</code>: Custom HTTP header host</p>
+<p>Transport method based on ws <a href="https://xtls.github.io/Xray-docs-next/config/transports/h2.html" target="_blank">WS Method</a></p>
 </blockquote>
-<p>Flow control mode, used to select the XTLS algorithm. </p>
-<p>NB: xtls-rprx-vision support only tls.</p>
-<p>Check documentation here <a href="https://xtls.github.io/Xray-docs-next/config/transport.html#tlsobject" target="_blank">TLS Object</a></p>
+<h2 id="grpc">GRPC</h2>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;grpc&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;serviceName&quot;</span>: <span class="hljs-string">&quot;xmplus&quot;</span>
+}
+</code></pre>
+<blockquote>
+<p><code>acceptProxyProtocol:</code> true | false</p>
+</blockquote>
+<p>It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don&#x2019;t understand it, please ignore</p>
+<blockquote>
+<p><code>serviceName</code>: behave like path in ws</p>
+<p>Transport method based on gRPC <a href="https://xtls.github.io/Xray-docs-next/config/transports/grpc.html" target="_blank">GRPC Method</a></p>
+</blockquote>
+<h2 id="quic">QUIC</h2>
+<p>backend quic transport failed to start run command: sysctl -w net.core.rmem_max=2500000 </p>
+<p>Increase buffer size <a href="https://github.com/lucas-clemente/quic-go/wiki/UDP-Receive-Buffer-Size" target="_blank">quic udp problem</a></p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;quic&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;header&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;none&quot;</span>
+  }
+}
+</code></pre>
+<blockquote>
+<p><code>acceptProxyProtocol:</code> true | false</p>
+</blockquote>
+<p>It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don&#x2019;t understand it, please ignore</p>
+<blockquote>
+<p><code>header type</code>: &quot;none&quot;</p>
+<p>Transport method based on quic <a href="https://xtls.github.io/Xray-docs-next/config/transports/quic.html" target="_blank">QUIC Method</a></p>
+</blockquote>
+<h2 id="kcp">KCP</h2>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;transport&quot;</span> : <span class="hljs-string">&quot;kcp&quot;</span>,
+  <span class="hljs-string">&quot;acceptProxyProtocol&quot;</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-string">&quot;header&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;none&quot;</span>
+  }
+}
+</code></pre>
+<blockquote>
+<p><code>acceptProxyProtocol:</code> true | false</p>
+</blockquote>
+<p>It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don&#x2019;t understand it, please ignore</p>
+<blockquote>
+<p><code>header type</code>: &quot;none&quot;</p>
+</blockquote>
+<p>Masquerade type, optional</p>
+<blockquote>
+<p>Transport method based on kcp <a href="https://xtls.github.io/Xray-docs-next/config/transports/mkcp.html" target="_blank">KCP Method</a></p>
+</blockquote>
 
                                 
                                 </section>
@@ -492,12 +578,12 @@
 
             
                 
-                <a href="protocols.html" class="navigation navigation-prev " aria-label="Previous page: Protocols">
+                <a href="../install/xrayr.html" class="navigation navigation-prev " aria-label="Previous page: XrayR Backend Installation - Backend">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cdn.html" class="navigation navigation-next " aria-label="Next page: Nginx + CDN">
+                <a href="../install/xmplus.html" class="navigation navigation-next " aria-label="Next page: XMPlus Backend Installation - Backend">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -508,7 +594,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security Settings","level":"4.2","depth":1,"next":{"title":"Nginx + CDN","level":"5.1","depth":1,"path":"servers/cdn.md","ref":"servers/cdn.md","articles":[]},"previous":{"title":"Protocols","level":"4.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/security-settings.md","mtime":"2023-02-27T23:47:36.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-27T23:48:02.233Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XrayR Frontend Network Settings","level":"3.1.1","depth":2,"next":{"title":"XMPlus Backend Installation - Backend","level":"3.2","depth":1,"path":"install/xmplus.md","ref":"install/xmplus.md","articles":[{"title":"XMPlus Frontend Network Settings","level":"3.2.1","depth":2,"path":"servers/xmplus-network-settings.md","ref":"servers/xmplus-network-settings.md","articles":[]}]},"previous":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"path":"install/xrayr.md","ref":"install/xrayr.md","articles":[{"title":"XrayR Frontend Network Settings","level":"3.1.1","depth":2,"path":"servers/xrayr-network-settings.md","ref":"servers/xrayr-network-settings.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/xrayr-network-settings.md","mtime":"2023-02-27T23:47:36.160Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-27T23:48:02.233Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
