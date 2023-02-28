@@ -39,7 +39,7 @@
     "ret": 1,
     "status": "success",
     "data": {
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MTE4NSwiZXhwIjoxNjc3NzEzOTg1LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.1e4Vwk1XgVtmDHoOIVRFmcJPlE7t9Q27-opiWWhXdFE"
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cGM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MTE4NSwiZXhwIjoxNjc3NzEzOTg1LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.1e4Vwk1XgVtmDHoOIVRFmcJPlE7t9Q27-opiWWhXdFE"
     }
 }
 ```
@@ -57,7 +57,7 @@
 
 ```json
 {
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MDIyNCwiZXhwIjoxNjc3NzEzMDI0LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.mzxFglyYi7euqfRRewEQEBLqIH7OpF1HdWLRNUabHV0"
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaGR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MDIyNCwiZXhwIjoxNjc3NzEzMDI0LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.mzxFglyYi7euqfRRewEQEBLqIH7OpF1HdWLRNUabHV0"
 }
 ```
 
@@ -86,7 +86,7 @@
             "allowinsecure": true,
             "header": "none",
             "fingerprint": "chrome",
-            "uri": "vmess://eyJ2IjoiMiIsInBzIjoiXHVkODNjXHVkZGVjXHVkODNjXHVkZGU3IFVLIHwgWDEuNSB8IEFNWiIsImFkZCI6InVrc2VyLmdieGNsb3VkLmNvbSIsInBvcnQiOiI0NDMiLCJpZCI6IjlkNjAyM2IxLTA5NDgtNDgyNy1iOWU5LTk4NDliMGZiNTA2MiIsImFpZCI6IjAiLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsImhvc3QiOiIiLCJwYXRoIjoiIn0="
+            "uri": "vmess://eyJ2IjoiMiIsInBzIjoiXHVkODNjXHVkZGVjXHVkODNjXHVkZGU3IFVLIHwgWDEuNSB8IEFNGiIsImFkZCI6InVrc2VyLmdieGNsb3VkLmNvbSIsInBvcnQiOiI0NDMiLCJpZCI6IjlkNjAyM2IxLTA5NDgtNDgyNy1iOWU5LTk4NDliMGZiNTA2MiIsImFpZCI6IjAiLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsImhvc3QiOiIiLCJwYXRoIjoiIn0="
         }
     ]
 }
@@ -105,7 +105,7 @@
 
 ```json
 {
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaHR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MDIyNCwiZXhwIjoxNjc3NzEzMDI0LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.mzxFglyYi7euqfRRewEQEBLqIH7OpF1HdWLRNUabHV0"
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3d3dy54bXBsdXMuZGV2IiwiYXVkIjoiaGR0cHM6Ly93d3cueG1wbHVzLmRldiIsImlhdCI6MTY3NzU0MDIyNCwiZXhwIjoxNjc3NzEzMDI0LCJlbWFpbCI6IndlYm1hc3RlckB4bXBsdXMuZGV2In0.mzxFglyYi7euqfRRewEQEBLqIH7OpF1HdWLRNUabHV0"
 }
 ```
 
@@ -136,6 +136,6 @@
         "remaining": "100 G",
         "total": "100 G"
     },
-    "sublink": "https://www.xmplus.dev/link/Zb0sxRcR5LfihSpX1Bvx?config=1"
+    "sublink": "https://www.xmplus.dev/link/Gb0sxRcR5LfihSpX1Bvx?config=1"
 }
 ```
