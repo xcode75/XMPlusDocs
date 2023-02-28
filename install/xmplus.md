@@ -33,7 +33,7 @@ vi /etc/XMPlus/config.yml  or can use any editor
 
 ```
 Log:
-  Level: info # Log level: none, error, warning, info, debug 
+  Level: warning # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XMPlus/access.Log
   ErrorPath: # /etc/XMPlus/error.log
 DnsConfigPath:  /etc/XMPlus/dns.json

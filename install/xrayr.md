@@ -37,7 +37,7 @@ vi /etc/XrayR/config.yml  or can use any editor to chnage default config.yml and
 
 ```
 Log:
-  Level: info # Log level: none, error, warning, info, debug 
+  Level: warning # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XrayR/access.Log
   ErrorPath: # /etc/XrayR/error.log
 DnsConfigPath: # /etc/XrayR/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
