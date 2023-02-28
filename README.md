@@ -16,10 +16,10 @@ An Xray-based frontend and backend manager that supports Vless, Vmess, Trojan, S
 ## Backend Installation
 
 * [XrayR Backend Installation - Backend](install/xrayr.md)
-	* [XrayR Frontend Network Settings](servers/xrayr-network-settings.md)
+	* [XrayR Network Settings](servers/xrayr-network-settings.md)
 	
 * [XMPlus Backend Installation - Backend](install/xmplus.md)
-	* [XMPlus Frontend Network Settings](servers/xmplus-network-settings.md)
+	* [XMPlus Network Settings](servers/xmplus-network-settings.md)
 
 ## Frontend Server settings
 
