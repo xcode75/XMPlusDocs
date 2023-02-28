@@ -23,14 +23,14 @@
 ```json
  {
   "email": "xmplus@xmplus.dev",
-  "password": "Ax345@78",
+  "passwd": "Ax345@78",
 }
 ```
 
 | Parameter name  |  Type  | Required  | Description   |
 |----------|--------|-----|------|
 | email    | string | ✔︎  | Email |
-| password | string | ✔︎  | Login Password   |
+| passwd   | string | ✔︎  | Login Password   |
 
 - successful return example `json`
 
