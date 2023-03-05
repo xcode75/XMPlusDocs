@@ -158,8 +158,9 @@ yum install firewalld
 systemctl enable firewalld
 systemctl start firewalld
 
-firewall-cmd --permanent --add-port=443/tcp
-firewall-cmd --permanent --add-port=443/udp
+
+firewall-cmd --permanent --add-port=1-65500/tcp
+firewall-cmd --permanent --add-port=1-65500/udp
 firewall-cmd --reload
 ```
 
