@@ -24,7 +24,7 @@ Choose Fast to compile and install.
 aaPanel  > App Store > PHP 7.4 > Setting > Install extentions > Ioncube, fileinfo。
 
 ### 3.Delete disabled functions
-aaPanel  > App Store > PHP 7.4 > Setting > Disabled functions > remove from list (exec,system, putenv)。
+aaPanel  > App Store > PHP 7.4 > Setting > Disabled functions > remove from list (exec, system, putenv, proc_open)。
 
 ### 4. Add Website
 aaPanel  > Website > Add site。
