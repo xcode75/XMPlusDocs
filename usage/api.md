@@ -18,7 +18,7 @@
 	> XMPus-API-Token: `md5(<your_api_key>)`
 	> Content-Type:    `application/json`
 
-- request parameters
+- request parameters (json body)
 
 ```json
  {
@@ -53,7 +53,7 @@
 	> XMPus-API-Token: `md5(<your_api_key>)`
 	> Content-Type:    `application/json`
 
-- request parameters
+- request parameters (json body)
 
 ```json
 {
@@ -101,7 +101,7 @@
 	> XMPus-API-Token: `md5(<your_api_key>)`
 	> Content-Type:    `application/json`
 
-- request parameters
+- request parameters (json body)
 
 ```json
 {
