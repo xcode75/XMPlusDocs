@@ -47,7 +47,7 @@ rm -rf .htaccess 404.html index.html .user.ini
 ```
 cd /www/wwwroot/tld.com
 
-wget https://github.com/xcode75/XManagerPlus/releases/download/v20230301/XMPlus.zip
+wget https://github.com/xcode75/XManagerPlus/releases/download/v20230324/XMPlus.zip
 
 unzip XMPlus.zip
 
@@ -105,9 +105,9 @@ Check site domain and apply for certificate, Enable Force HTTPS
 
 After logging in to the server through SSH, visit the site path:cd  /www/wwwroot/tld.com
 
-input the command: php bin/console.php admin
+input the command: php xmplus admin
 
 #### Download application 
 
-input the command: php bin/console.php download
+input the command: php xmplus download
 
