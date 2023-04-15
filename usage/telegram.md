@@ -16,7 +16,7 @@ XMPlus System Settings -> TG Settings -> TG Token -> Enter your token
 
 After logging in to the server with SSH, access the site path such as: /www/wwwroot/tld.com
 
-Enter the command: php bin/console.php telegram set
+Enter the command: php xmplus telegram set
 
 - Get the chat ID: your robot sends a message /ping
 
