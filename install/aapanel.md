@@ -75,8 +75,6 @@ Create a new database with: utf8mb4_unicode_ci
 
 - Edit configuration /www/wwwroot/tld.com/config/config.php 
 
-  - fill in baseURL, your site address. eg, https://tld.com
-
   -  You can change admin login path to your preferred path. Must start with /
   
   - fill in your database information(use root as username and root password in config.php)
