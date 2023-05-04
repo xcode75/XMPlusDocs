@@ -102,7 +102,20 @@ Nodes:
         DNSEnv: # DNS ENV option used by DNS provider
           CLOUDFLARE_EMAIL: aaa
           CLOUDFLARE_API_KEY: bbb
-
+      EnableREALITY: true # Enable REALITY
+      REALITYConfigs:
+        Show: true # Show REALITY debug
+        Dest: www.smzdm.com:443 # Required, Same as fallback
+        ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
+        ServerNames: # Required, list of available serverNames for the client, * wildcard is not supported at the moment.
+          - www.smzdm.com
+        PrivateKey: YOUR_PRIVATE_KEY # Required, execute './xray x25519' to generate.
+        MinClientVer: # Optional, minimum version of Xray client, format is x.y.z.
+        MaxClientVer: # Optional, maximum version of Xray client, format is x.y.z.
+        MaxTimeDiff: 0 # Optional, maximum allowed time difference, unit is in milliseconds.
+        ShortIds: # Required, list of available shortIds for the client, can be used to differentiate between different clients.
+          - ""
+          - 0123456789abcdef
 ```
 
 > `ApiHost` :  your website address. eg, https://www.tld.com  and not this https://www.tld.com/
