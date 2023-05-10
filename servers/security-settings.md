@@ -43,7 +43,11 @@ NB: xtls-rprx-vision support only tls.
 
 
 
-### Reality Settings
+### Reality Settings (Frontend / Client)
+
+[Check official readme here] (https://github.com/XTLS/REALITY#readme)
+
+[Generate Private and Public Keys Here] (https://go.dev/play/p/N5kQhIjtye7)
 
 ```json
 {
@@ -64,7 +68,7 @@ NB: xtls-rprx-vision support only tls.
 
 > `flow`:  xtls-rprx-vision 
  
-> `shortid`:  One of the server shortIds
+> `shortid`:  One of the server shortIds (0 to f, the length is a multiple of 2, the maximum length is 16)
 
 > `publickey`: The public key corresponding to the private key of the server
 
