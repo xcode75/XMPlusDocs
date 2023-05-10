@@ -11,7 +11,7 @@ NB: Server port and listening port must be the same, unless you are using other 
   "allowInsecure": false,
   "fingerprint": "chrome",
   "sni": "xmplus.dev",
-  "flow": "none"
+  "flow": ""
 }
 ```
 
@@ -35,7 +35,7 @@ When the value is true, the server will reject the TLS handshake if the SNI rece
 
 Specifies the domain name of the server-side certificate, useful when the connection is established by IP.
 
-> `flow`:  none | xtls-rprx-direct | xtls-rprx-vision 
+> `flow`:  none | xtls-rprx-vision 
 
 Flow control mode, used to select the XTLS algorithm. 
 
