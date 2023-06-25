@@ -27,7 +27,6 @@
 
    * [Authorization](usage/license.md)
    * [LiveChat](usage/livechat.md)
-   * [Mailing](usage/google.md)
    * [CF Zone](usage/zone.md)
    * [Captcha](usage/captcha.md)
    * [TelegramBot](usage/telegram.md)

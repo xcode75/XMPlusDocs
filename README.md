@@ -34,7 +34,6 @@ An Xray-based frontend and backend manager that supports Vless, Vmess, Trojan, S
 
    * [Authorization](usage/license.md)
    * [LiveChat](usage/livechat.md)
-   * [Mailing](usage/google.md)
    * [CF Zone](usage/zone.md)
    * [Captcha](usage/captcha.md)
    * [TelegramBot](usage/telegram.md)
