@@ -47,7 +47,7 @@ rm -rf .htaccess 404.html index.html .user.ini
 ```
 cd /www/wwwroot/tld.com
 
-wget https://github.com/xcode75/XManagerPlus/releases/download/v20230626/XMPlus.zip
+wget https://github.com/xcode75/XManagerPlus/releases/download/v20230627/XMPlus.zip
 
 unzip XMPlus.zip
 
