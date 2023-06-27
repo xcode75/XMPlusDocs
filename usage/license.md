@@ -12,4 +12,4 @@ accept crypto payments only
 
 > NOTE: Install the free version and test with all your internet service providers if it works for you before buying full version since i cannot guarantee will work for you where ever you are.
 
-if you want to buy authorization(onetime payment and permanent use). Purchase authorization contact [@xcode75](https://t.me/xcode75)
+if you want to buy authorization(onetime payment and permanent use). Purchase authorization contact [@xcode75](https://t.me/xcode75) ( english and chinese only )
