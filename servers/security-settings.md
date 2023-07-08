@@ -10,8 +10,7 @@ NB: Server port and listening port must be the same, unless you are using other 
   "rejectUnknownSni": true,
   "allowInsecure": false,
   "fingerprint": "chrome",
-  "sni": "xmplus.dev",
-  "flow": ""
+  "sni": "xmplus.dev"
 }
 ```
 
@@ -35,13 +34,6 @@ When the value is true, the server will reject the TLS handshake if the SNI rece
 
 Specifies the domain name of the server-side certificate, useful when the connection is established by IP.
 
-> `flow`:  none | xtls-rprx-vision 
-
-Flow control mode, used to select the XTLS algorithm. 
-
-NB: xtls-rprx-vision support only tls.
-
-
 
 ### Reality Settings (Frontend / Client)
 
@@ -51,28 +43,24 @@ NB: xtls-rprx-vision support only tls.
 
 ```json
 {
-  "serverName": "www.lovelive-anime.jp",
+  "show" : false,
+  "dest": "www.lovelive-anime.jp:443",
+  "privatekey" : "yBaw532IIUNuQWDTncozoBaLJmcd1JZzvsHUgVPxMk8",
+  "minclientver":"",
+  "maxclientver":"",
+  "maxtimediff":0,
+  "proxyprotocol":0,
+  "shortids" : [
+    "6ba85179e30d4fc2"
+  ],
+  "serverNames": [
+    "www.lovelive-anime.jp",
+    "www.cloudflare.com"
+  ],
   "fingerprint": "chrome",
-  "shortid": "6ba85179e30d4fc2",
-  "flow": "xtls-rprx-vision",
   "spiderx": "",
-  "publickey": "MNN-kSKdj_9m3nQKP16wiS3P1tv-ClrQ4B1IBgqySCs"
+  "publickey": "7xhH4b_VkliBxGulljcyPOH-bYUA2dl-XAdZAsfhk04"
 }
 ```
-
-> `show`: false,  if true, output debugging information
-
-> `serverName`: One of the server serverNames
-
-> `fingerprint`: "chrome" | "firefox" | "safari" | "randomized"
-
-> `flow`:  xtls-rprx-vision 
- 
-> `shortid`:  One of the server shortIds (0 to f, the length is a multiple of 2, the maximum length is 16)
-
-> `publickey`: The public key corresponding to the private key of the server
-
-> `spiderx`: The initial path and parameters of the crawler are recommended to be different for each client
-
 
 

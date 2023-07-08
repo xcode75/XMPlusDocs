@@ -8,6 +8,7 @@
 {
   "transport" : "tcp",
   "acceptProxyProtocol": false,
+  "flow" : "xtls-rprx-vision",
   "header": {
     "type": "none"
   }
@@ -38,6 +39,8 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
 > `path`: Http Header path, The default value is /
 
 > `Host`: Http Header host
+
+> `flow`:  none | xtls-rprx-vision 
 
 > Transport method based on tcp [TCP Method](https://xtls.github.io/Xray-docs-next/config/transports/tcp.html)
 
