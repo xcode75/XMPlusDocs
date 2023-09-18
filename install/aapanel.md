@@ -41,7 +41,7 @@ The following commands need to be executed in the site directory.
 ```
 chattr -i .user.ini
 
-rm -rf .htaccess 404.html index.html
+rm -rf .user.ini .htaccess 404.html index.html
 ```
 
 ### Execute the command to install XMPlus
@@ -57,8 +57,6 @@ chmod +x install.sh
 ./install.sh
 
 mv .user.ini /www/wwwroot/tld.com/public
-
-chattr +i /www/wwwroot/tld.com/public/.user.ini
 
 rm -rf install.sh XMPlus.zip
 ```
