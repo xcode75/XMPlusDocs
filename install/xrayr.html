@@ -555,20 +555,19 @@ ConnectionConfig:
   DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
   BufferSize: 64 # The internal cache size of each connection, kB
 Nodes:
-  -
-    PanelType: &quot;SSpanel&quot;
+  - PanelType: &quot;SSpanel&quot; # Panel type: SSpanel, NewV2board, PMpanel, Proxypanel, V2RaySocks, GoV2Panel
     ApiConfig:
-      ApiHost: &quot;http://127.0.0.1&quot;
-      ApiKey: &quot;123&quot;
+      ApiHost: &quot;https://www.xmplus.dev&quot;
+      ApiKey: &quot;xxxgjyuyiy&quot;
       NodeID: 1
       NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan, Shadowsocks-Plugin
       Timeout: 30 # Timeout for the api request
-      EnableVless: false # Enable Vless for V2ray Type
-      EnableXTLS: false # Enable XTLS for V2ray and Trojan
+      EnableVless: true # Enable Vless for V2ray Type
+      VlessFlow: &quot;xtls-rprx-vision&quot; # Only support vless
       SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
       DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
       RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
-      DisableCustomConfig: false 
+      DisableCustomConfig: false # disable custom config for sspanel
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -590,36 +589,36 @@ Nodes:
         Expiry: 60 # Expiry time (second)
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
-        -
-          SNI: # TLS SNI(Server Name Indication), Empty for any
+        - SNI: # TLS SNI(Server Name Indication), Empty for any
           Alpn: # Alpn, Empty for any
           Path: # HTTP PATH, Empty for any
           Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/features/fallback.html for details.
-          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
+      DisableLocalREALITYConfig: true  # disable local reality config
+      EnableREALITY: false # Enable REALITY
+      REALITYConfigs:
+        Show: false # Show REALITY debug
+        Dest: www.smzdm.com:443 # Required, Same as fallback
+        ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
+        ServerNames: # Required, list of available serverNames for the client, * wildcard is not supported at the moment.
+          - www.smzdm.com
+        PrivateKey: yBaw532IIUNuQWDTncozoBaLJmcd1JZzvsHUgVPxMk8 # Required, execute &apos;./xray x25519&apos; to generate.
+        MinClientVer: # Optional, minimum version of Xray client, format is x.y.z.
+        MaxClientVer: # Optional, maximum version of Xray client, format is x.y.z.
+        MaxTimeDiff: 0 # Optional, maximum allowed time difference, unit is in milliseconds.
+        ShortIds: # Required, list of available shortIds for the client, can be used to differentiate between different clients.
+          - &quot;6ba85179e30d4fc2&quot;
+          - 0123456789abcdef
       CertConfig:
         CertMode: none # Option about how to get certificate: none, file, http, tls, dns. Choose &quot;none&quot; will forcedly disable the tls config.
         CertDomain: &quot;node1.test.com&quot; # Domain to cert
         CertFile: /etc/XrayR/cert/node1.test.com.cert # Provided if the CertMode is file
         KeyFile: /etc/XrayR/cert/node1.test.com.key
-        Provider: cloudflare # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
+        Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
-          CLOUDFLARE_EMAIL: aaa
-          CLOUDFLARE_API_KEY: bbb
-      EnableREALITY: true # Enable REALITY
-      REALITYConfigs:
-        Show: true # Show REALITY debug
-        Dest: www.smzdm.com:443 # Required, Same as fallback
-        ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
-        ServerNames: # Required, list of available serverNames for the client, * wildcard is not supported at the moment.
-          - www.smzdm.com
-        PrivateKey: YOUR_PRIVATE_KEY # Required, execute &apos;./xray x25519&apos; to generate.
-        MinClientVer: # Optional, minimum version of Xray client, format is x.y.z.
-        MaxClientVer: # Optional, maximum version of Xray client, format is x.y.z.
-        MaxTimeDiff: 0 # Optional, maximum allowed time difference, unit is in milliseconds.
-        ShortIds: # Required, list of available shortIds for the client, can be used to differentiate between different clients.
-          - &quot;&quot;
-          - 0123456789abcdef
+          ALICLOUD_ACCESS_KEY: aaa
+          ALICLOUD_SECRET_KEY: bbb
 </code></pre><blockquote>
 <p><code>ApiHost</code> :  your website address. eg, <a href="https://www.tld.com" target="_blank">https://www.tld.com</a>  and not this <a href="https://www.tld.com/" target="_blank">https://www.tld.com/</a></p>
 <p><code>ApiKey</code>: your api key, an be found in admin settings &gt; API settings &gt; API Key</p>
@@ -631,14 +630,15 @@ Nodes:
 <p><code>UpdatePeriodic</code>:  time(seconds) after backend send data to the frontend and retrieve new data from frontend. Least time is 60 seconds, if you change theis value, remember to also change in admin panel &gt; api settings &gt; Update Period(s)</p>
 <p><code>ListenIP</code>: If you are using nginx set listening ip to 127.0.0.1 and CertMode to none in config.yml</p>
 <p><code>CertConfig</code>: you need to set these if you set CertMode is not none</p>
+<p> <code>DisableLocalREALITYConfig</code>: true # use reality settings from xmplus panel</p>
 </blockquote>
 <p>Do not make any chnages to these options below in the config</p>
 <blockquote>
-<p>AutoSpeedLimitConfig
-GlobalDeviceLimitConfig
-SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
-DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
-RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file</p>
+<p>AutoSpeedLimitConfig</p>
+<p>GlobalDeviceLimitConfig</p>
+<p><code>SpeedLimit</code>: 0 # Mbps, Local settings will replace remote settings, 0 means disable</p>
+<p><code>DeviceLimit</code>: 0 # Local settings will replace remote settings, 0 means disable</p>
+<p>RuleListPath``: # /etc/XrayR/rulelist Path to local rulelist file</p>
 </blockquote>
 <h3 id="importan-notice">Importan Notice</h3>
 <p>Do not install backend on same server as frontend if you intend to enable tls on the backend.</p>
@@ -656,7 +656,7 @@ firewall-cmd --permanent --add-port=1-65500/tcp
 firewall-cmd --permanent --add-port=1-65500/udp
 firewall-cmd --reload
 </code></pre><blockquote>
-<p> Note: XrayR does not support frontend  Transit(Relay) Client -&gt; Node A -&gt; Node B -&gt; Destination(www.google.com)</p>
+<p> Note: XrayR does not support frontend  Transit(Relay)</p>
 </blockquote>
 
                                 
@@ -701,7 +701,7 @@ firewall-cmd --reload
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"next":{"title":"XrayR Network Settings","level":"3.1.1","depth":2,"path":"servers/xrayr-network-settings.md","ref":"servers/xrayr-network-settings.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xrayr.md","mtime":"2023-09-18T14:15:44.844Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-09-18T14:16:11.684Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"next":{"title":"XrayR Network Settings","level":"3.1.1","depth":2,"path":"servers/xrayr-network-settings.md","ref":"servers/xrayr-network-settings.md","articles":[]},"previous":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"path":"install/aapanel.md","ref":"install/aapanel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xrayr.md","mtime":"2023-11-06T20:44:27.963Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-06T20:44:52.824Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
