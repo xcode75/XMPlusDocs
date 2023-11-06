@@ -8,6 +8,7 @@
 {
   "transport" : "tcp",
   "acceptProxyProtocol": false,
+  "flow" : "xtls-rprx-vision",
   "header": {
     "type": "none"
   }
@@ -31,15 +32,6 @@
   }
 }
 ```
-> `acceptProxyProtocol:` true | false
-
-It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don’t understand it, please ignore
-
-> `path`: Http Header path, The default value is /
-
-> `Host`: Http Header host
-
-> Transport method based on tcp [TCP Method](https://xtls.github.io/Xray-docs-next/config/transports/tcp.html)
 
 
 ## WS
@@ -54,15 +46,6 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   }
 }
 ```
-> `acceptProxyProtocol:` true | false
-
-It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don’t understand it, please ignore
-
-> `path`: The HTTP protocol path used by WebSocket, the default value is "/".
-
-> `Host`: Custom HTTP header host
-
-> Transport method based on ws [WS Method](https://xtls.github.io/Xray-docs-next/config/transports/websocket.html)
 
 ## H2
 
@@ -74,15 +57,6 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   "path": "/xmplus"
 }
 ```
-> `acceptProxyProtocol:` true | false
-
-It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don’t understand it, please ignore
-
-> `path`: HTTP path, starting with /, client and server must be the same.
-
-> `Host`: Custom HTTP header host
-
-> Transport method based on ws [WS Method](https://xtls.github.io/Xray-docs-next/config/transports/h2.html)
 
 
 ## GRPC
@@ -94,14 +68,6 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   "serviceName": "xmplus"
 }
 ```
-
-> `acceptProxyProtocol:` true | false
-
-It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don’t understand it, please ignore
-
-> `serviceName`: behave like path in ws
-
-> Transport method based on gRPC [GRPC Method](https://xtls.github.io/Xray-docs-next/config/transports/grpc.html)
 
 
 ## QUIC
@@ -120,13 +86,7 @@ Increase buffer size [quic udp problem](https://github.com/lucas-clemente/quic-g
 }
 ```
 
-> `acceptProxyProtocol:` true | false
 
-It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don’t understand it, please ignore
-
-> `header type`: "none"
-
-> Transport method based on quic [QUIC Method](https://xtls.github.io/Xray-docs-next/config/transports/quic.html)
 
 ## KCP
 
@@ -139,13 +99,4 @@ It indicates whether to receive the PROXY protocol. PROXY protocolopen in new wi
   }
 }
 ```
-> `acceptProxyProtocol:` true | false
 
-It indicates whether to receive the PROXY protocol. PROXY protocolopen in new window is dedicated to passing the real source IP and port of the request, if you don’t understand it, please ignore
-
-> `header type`: "none"
-
-Masquerade type, optional
-
-
-> Transport method based on kcp [KCP Method](https://xtls.github.io/Xray-docs-next/config/transports/mkcp.html)

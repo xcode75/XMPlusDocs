@@ -51,20 +51,19 @@ ConnectionConfig:
   DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
   BufferSize: 64 # The internal cache size of each connection, kB
 Nodes:
-  -
-    PanelType: "SSpanel"
+  - PanelType: "SSpanel" # Panel type: SSpanel, NewV2board, PMpanel, Proxypanel, V2RaySocks, GoV2Panel
     ApiConfig:
-      ApiHost: "http://127.0.0.1"
-      ApiKey: "123"
+      ApiHost: "https://www.xmplus.dev"
+      ApiKey: "xxxgjyuyiy"
       NodeID: 1
       NodeType: V2ray # Node type: V2ray, Shadowsocks, Trojan, Shadowsocks-Plugin
       Timeout: 30 # Timeout for the api request
-      EnableVless: false # Enable Vless for V2ray Type
-      EnableXTLS: false # Enable XTLS for V2ray and Trojan
+      EnableVless: true # Enable Vless for V2ray Type
+      VlessFlow: "xtls-rprx-vision" # Only support vless
       SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
       DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
       RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
-	  DisableCustomConfig: false 
+      DisableCustomConfig: false # disable custom config for sspanel
     ControllerConfig:
       ListenIP: 0.0.0.0 # IP address you want to listen
       SendIP: 0.0.0.0 # IP address you want to send pacakage
@@ -86,36 +85,36 @@ Nodes:
         Expiry: 60 # Expiry time (second)
       EnableFallback: false # Only support for Trojan and Vless
       FallBackConfigs:  # Support multiple fallbacks
-        -
-          SNI: # TLS SNI(Server Name Indication), Empty for any
+        - SNI: # TLS SNI(Server Name Indication), Empty for any
           Alpn: # Alpn, Empty for any
           Path: # HTTP PATH, Empty for any
           Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/features/fallback.html for details.
-          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
+      DisableLocalREALITYConfig: true  # disable local reality config
+      EnableREALITY: false # Enable REALITY
+      REALITYConfigs:
+        Show: false # Show REALITY debug
+        Dest: www.smzdm.com:443 # Required, Same as fallback
+        ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
+        ServerNames: # Required, list of available serverNames for the client, * wildcard is not supported at the moment.
+          - www.smzdm.com
+        PrivateKey: yBaw532IIUNuQWDTncozoBaLJmcd1JZzvsHUgVPxMk8 # Required, execute './xray x25519' to generate.
+        MinClientVer: # Optional, minimum version of Xray client, format is x.y.z.
+        MaxClientVer: # Optional, maximum version of Xray client, format is x.y.z.
+        MaxTimeDiff: 0 # Optional, maximum allowed time difference, unit is in milliseconds.
+        ShortIds: # Required, list of available shortIds for the client, can be used to differentiate between different clients.
+          - "6ba85179e30d4fc2"
+          - 0123456789abcdef
       CertConfig:
         CertMode: none # Option about how to get certificate: none, file, http, tls, dns. Choose "none" will forcedly disable the tls config.
         CertDomain: "node1.test.com" # Domain to cert
         CertFile: /etc/XrayR/cert/node1.test.com.cert # Provided if the CertMode is file
         KeyFile: /etc/XrayR/cert/node1.test.com.key
-        Provider: cloudflare # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
+        Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
         Email: test@me.com
         DNSEnv: # DNS ENV option used by DNS provider
-          CLOUDFLARE_EMAIL: aaa
-          CLOUDFLARE_API_KEY: bbb
-      EnableREALITY: true # Enable REALITY
-      REALITYConfigs:
-        Show: true # Show REALITY debug
-        Dest: www.smzdm.com:443 # Required, Same as fallback
-        ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
-        ServerNames: # Required, list of available serverNames for the client, * wildcard is not supported at the moment.
-          - www.smzdm.com
-        PrivateKey: YOUR_PRIVATE_KEY # Required, execute './xray x25519' to generate.
-        MinClientVer: # Optional, minimum version of Xray client, format is x.y.z.
-        MaxClientVer: # Optional, maximum version of Xray client, format is x.y.z.
-        MaxTimeDiff: 0 # Optional, maximum allowed time difference, unit is in milliseconds.
-        ShortIds: # Required, list of available shortIds for the client, can be used to differentiate between different clients.
-          - ""
-          - 0123456789abcdef
+          ALICLOUD_ACCESS_KEY: aaa
+          ALICLOUD_SECRET_KEY: bbb
 ```
 
 > `ApiHost` :  your website address. eg, https://www.tld.com  and not this https://www.tld.com/
@@ -138,14 +137,19 @@ Nodes:
 
 > `CertConfig`: you need to set these if you set CertMode is not none
 
+>  `DisableLocalREALITYConfig`: true # use reality settings from xmplus panel
 
 Do not make any chnages to these options below in the config
 
 > AutoSpeedLimitConfig
+
 > GlobalDeviceLimitConfig
-> SpeedLimit: 0 # Mbps, Local settings will replace remote settings, 0 means disable
-> DeviceLimit: 0 # Local settings will replace remote settings, 0 means disable
-> RuleListPath: # /etc/XrayR/rulelist Path to local rulelist file
+
+> `SpeedLimit`: 0 # Mbps, Local settings will replace remote settings, 0 means disable
+
+> `DeviceLimit`: 0 # Local settings will replace remote settings, 0 means disable
+
+> RuleListPath``: # /etc/XrayR/rulelist Path to local rulelist file
 	  
 ### Importan Notice
 
@@ -177,4 +181,4 @@ firewall-cmd --permanent --add-port=1-65500/udp
 firewall-cmd --reload
 ```
 
->  Note: XrayR does not support frontend  Transit(Relay) Client -> Node A -> Node B -> Destination(www.google.com)
+>  Note: XrayR does not support frontend  Transit(Relay)
