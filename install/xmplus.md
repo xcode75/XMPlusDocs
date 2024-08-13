@@ -49,11 +49,14 @@ ConnectionConfig:
 Nodes:
   -
     ApiConfig:
-      ApiHost: "https://www.tld.om"
+      ApiHost: "https://www.xyz.com"
       ApiKey: "123"
       NodeID: 1
       Timeout: 30 
+      RuleListPath: # /etc/XMPlus/rulelist Path to local rulelist file
     ControllerConfig:
+      EnableDNS: false # Use custom DNS config, Please ensure that you set the dns.json well
+      DNSStrategy: AsIs # AsIs, UseIP, UseIPv4, UseIPv6
       CertConfig:
         Email: author@xmplus.dev                    # Required when Cert Mode is not none
         CertFile: /etc/XMPlus/node1.xmplus.dev.crt  # Required when Cert Mode is file
@@ -62,31 +65,23 @@ Nodes:
         CertEnv:                                    # Required when Cert Mode is dns
           CLOUDFLARE_EMAIL:                         # Required when Cert Mode is dns
           CLOUDFLARE_API_KEY:                       # Required when Cert Mode is dns
-      RealityConfigs:
-        Show: false   # Show REALITY debug
-        Dest: www.lovelive-anime.jp:443   # Required, Same as fallback
-        Xver : 0   # Send PROXY protocol version, 0 for disable
-        ServerNames:    # Required, list of available serverNames for the client, * wildcard is not supported at the moment.
-          - www.lovelive-anime.jp
-        PrivateKey: MH0gmvlQQJjgM0pE2XhPMpcuEVtm2pTc0UKCY1oEvFU   # Required, execute './xray x25519' to generate.
-        MinClientVer:   # Optional, minimum version of Xray client, format is x.y.z.
-        MaxClientVer:   # Optional, maximum version of Xray client, format is x.y.z.
-        MaxTimeDiff: 0  # Optional, maximum allowed time difference, unit is in milliseconds.
-        ShortIds:    # Required, list of available shortIds for the client, can be used to differentiate between different clients.
-          - 6ba85179e30d4fc2
+      EnableFallback: false # Only support for Trojan and Vless
+      FallBackConfigs:  # Support multiple fallbacks
+        - SNI: # TLS SNI(Server Name Indication), Empty for any
+          Alpn: # Alpn, Empty for any
+          Path: # HTTP PATH, Empty for any
+          Dest: 80 # Required, Destination of fallback, check https://xtls.github.io/config/features/fallback.html for details.
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for disable
+      IPLimit:
+        Enable: false # Enable the global ip limit of a user 
+        RedisNetwork: tcp # Redis protocol, tcp or unix
+        RedisAddr: 127.0.0.1:6379 # Redis server address, or unix socket path
+        RedisUsername: default # Redis username
+        RedisPassword: YOURPASSWORD # Redis password
+        RedisDB: 0 # Redis DB
+        Timeout: 5 # Timeout for redis request
+        Expiry: 60 # Expiry time (second) 
 ```
-
-> `ApiHost` :  your website address. eg, https://www.tld.com  and not this https://www.tld.com/
-
-> `ApiKey`: your api key, an be found in admin settings > API settings > API Key
-
-> `NodeID`:  The server id number after creating a server in the admin panel
-
-> `Timeout`: time before no response from api.
-
-> `CertConfig`: you only need to set these if you set cert mode to DNS when creating server. it is used to resolve cert address when generating certificate when tls is enable.
-
-> `RealityConfigs`  
 
 ### Importan Notice
 

@@ -9,15 +9,13 @@
 ## Backend Installation
 
 * [XrayR Backend Installation - Backend](install/xrayr.md)
-	* [XrayR Network Settings](servers/xrayr-network-settings.md)
-	
 * [XMPlus Backend Installation - Backend](install/xmplus.md)
-	* [XMPlus Network Settings](servers/xmplus-network-settings.md)
 
 ## Frontend Server settings
 
    * [Protocols](servers/protocols.md)
    * [Security Settings](servers/security-settings.md)
+   * [XMPlus Network Settings](servers/network-settings.md)
    
 ## Nginx + CDN
 
