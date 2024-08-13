@@ -24,7 +24,7 @@ The XMPlus backend is a customized version of XRayR (one server supports multipl
 ### one-click installation
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/xcode75/XMPlus/install/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/XMPlusDev/XMPlusv1/install/install.sh)
 ```
 
 ### Backend configuration
