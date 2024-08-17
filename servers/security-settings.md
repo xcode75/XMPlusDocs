@@ -10,7 +10,11 @@ NB: Server port and listening port must be the same, unless you are using other 
   "rejectUnknownSni": true,
   "allowInsecure": false,
   "fingerprint": "chrome",
-  "sni": "xmplus.dev"
+  "sni": "xmplus.dev",
+  "alpn": [
+	"http/1.1",
+	"h2"
+  ]
 }
 ```
 

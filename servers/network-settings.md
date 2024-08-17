@@ -35,7 +35,8 @@
   "transport": "ws",
   "acceptProxyProtocol": false,
   "path": "/xmplus?ed=2560",
-  "host": "hk1.xyz.com"
+  "host": "hk1.xyz.com",
+  "cdn_host": "www.cloudflare.com"
 }
 ```
 
@@ -45,7 +46,8 @@
   "transport" : "h2",
   "acceptProxyProtocol": false,
   "host": "hk1.xyz.com",
-  "path": "/"
+  "path": "/",
+  "cdn_host": "www.cloudflare.com"
 }
 ```
 
@@ -65,7 +67,8 @@
   "transport" : "httpupgrade",
   "acceptProxyProtocol": false,
   "host": "hk1.xyz.com",
-  "path": "/xmplus?ed=2560"
+  "path": "/xmplus?ed=2560",
+  "cdn_host": "www.cloudflare.com"
 }
 ```
 
@@ -74,6 +77,7 @@
 {
   "transport" : "splithttp",
   "host": "hk1.xyz.com",
+  "cdn_host": "www.cloudflare.com"
   "path": "/",
   "scMaxEachPostBytes": 1000000,
   "scMaxConcurrentPosts": 100,
