@@ -418,14 +418,16 @@
   &quot;transport&quot;: &quot;ws&quot;,
   &quot;acceptProxyProtocol&quot;: false,
   &quot;path&quot;: &quot;/xmplus?ed=2560&quot;,
-  &quot;host&quot;: &quot;hk1.xyz.com&quot;
+  &quot;host&quot;: &quot;hk1.xyz.com&quot;,
+  &quot;cdn_host&quot;: &quot;www.cloudflare.com&quot;
 }
 </code></pre><h4 id="h2">H2</h4>
 <pre><code>{
   &quot;transport&quot; : &quot;h2&quot;,
   &quot;acceptProxyProtocol&quot;: false,
   &quot;host&quot;: &quot;hk1.xyz.com&quot;,
-  &quot;path&quot;: &quot;/&quot;
+  &quot;path&quot;: &quot;/&quot;,
+  &quot;cdn_host&quot;: &quot;www.cloudflare.com&quot;
 }
 </code></pre><h4 id="grpc">GRPC</h4>
 <pre><code>{
@@ -439,12 +441,14 @@
   &quot;transport&quot; : &quot;httpupgrade&quot;,
   &quot;acceptProxyProtocol&quot;: false,
   &quot;host&quot;: &quot;hk1.xyz.com&quot;,
-  &quot;path&quot;: &quot;/xmplus?ed=2560&quot;
+  &quot;path&quot;: &quot;/xmplus?ed=2560&quot;,
+  &quot;cdn_host&quot;: &quot;www.cloudflare.com&quot;
 }
 </code></pre><h4 id="splithttp">SPLITHTTP</h4>
 <pre><code>{
   &quot;transport&quot; : &quot;splithttp&quot;,
   &quot;host&quot;: &quot;hk1.xyz.com&quot;,
+  &quot;cdn_host&quot;: &quot;www.cloudflare.com&quot;
   &quot;path&quot;: &quot;/&quot;,
   &quot;scMaxEachPostBytes&quot;: 1000000,
   &quot;scMaxConcurrentPosts&quot;: 100,
@@ -514,7 +518,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"XMPlus Network Settings","level":"4.3","depth":1,"next":{"title":"Nginx + CDN","level":"5.1","depth":1,"path":"servers/cdn.md","ref":"servers/cdn.md","articles":[]},"previous":{"title":"Security Settings","level":"4.2","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/network-settings.md","mtime":"2024-08-13T19:24:20.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-13T19:24:45.205Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XMPlus Network Settings","level":"4.3","depth":1,"next":{"title":"Nginx + CDN","level":"5.1","depth":1,"path":"servers/cdn.md","ref":"servers/cdn.md","articles":[]},"previous":{"title":"Security Settings","level":"4.2","depth":1,"path":"servers/security-settings.md","ref":"servers/security-settings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/network-settings.md","mtime":"2024-08-17T12:05:37.666Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-17T12:06:01.766Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
