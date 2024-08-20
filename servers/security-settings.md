@@ -7,13 +7,13 @@ NB: Server port and listening port must be the same, unless you are using other 
 ```json
 {
   "serverName": "xmplus.dev",
-  "rejectUnknownSni": true,
+  "rejectUnknownSni": false,
   "allowInsecure": false,
   "fingerprint": "chrome",
   "sni": "xmplus.dev",
   "alpn": [
-	"http/1.1",
-	"h2"
+	"h2",
+	"http/1.1"
   ]
 }
 ```
@@ -43,7 +43,7 @@ Specifies the domain name of the server-side certificate, useful when the connec
 
 [Check official readme here] (https://github.com/XTLS/REALITY#readme)
 
-[Generate Private and Public Keys Here] (https://go.dev/play/p/N5kQhIjtye7)
+[Generate Private and Public Keys] ```xmplus x25519```
 
 ```json
 {

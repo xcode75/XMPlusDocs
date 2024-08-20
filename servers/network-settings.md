@@ -77,7 +77,7 @@
 {
   "transport" : "splithttp",
   "host": "hk1.xyz.com",
-  "cdn_host": "www.cloudflare.com"
+  "cdn_host": "www.cloudflare.com",
   "path": "/",
   "scMaxEachPostBytes": 1000000,
   "scMaxConcurrentPosts": 100,
