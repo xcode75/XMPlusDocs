@@ -586,7 +586,39 @@ firewall-cmd --reload
 <p>Node A and B must have the XMPlus backend installed</p>
 <p>Node A -&gt; Transit Type -&gt; XMPlus backend</p>
 <p>Node A -&gt; Transit Server -&gt; select target Node B</p>
+<h2 id="xmplus-iplimit">XMPlus IPLimit</h2>
+<h3 id="install-redis-server-on-a-dedicated-server">Install redis-server on a dedicated server</h3>
+<h1 id="server">Server</h1>
+<p>sudo apt update -y
+sudo apt upgrade -y
+sudo apt install redis-server</p>
+<p>Edit <code>/etc/redis/redis.conf</code> and set <code>bind 0.0.0.0</code> and <code>requirepass yourownpass</code></p>
+<p>Edit <code>/etc/systemd/system/redis.service</code>  add Type=notify under service</p>
+<pre><code>[Service]
+Type=notify
 
+ExecStart=/usr/bin/redis-server /etc/redis.conf --supervised systemd
+</code></pre><p>Restart redis Server</p>
+<p><code>sudo systemctl daemon-reload</code>
+<code>sudo systemctl enable redis-server.service</code>
+<code>sudo systemctl restart redis</code>
+<code>sudo systemctl status redis</code></p>
+<p>Check if redis is running and install redis client on all backend servers</p>
+<h3 id="install-redis-client-on-xmplus-backend-servers">Install redis-client on xmplus backend servers</h3>
+<h1 id="client">Client</h1>
+<p>sudo apt-get install redis-tools
+sudo apt install redis-tools</p>
+<h2 id="fill-in-details-for-xmplus-iplimit">Fill in details for XMPLus IPLimit</h2>
+<pre><code>      IPLimit:
+        Enable: true # Enable the global ip limit of a user 
+        RedisNetwork: tcp # Redis protocol, tcp or unix
+        RedisAddr: 127.0.0.1:6379 # Redis server address, or unix socket path
+        RedisUsername: default # Redis username
+        RedisPassword: YOUR PASSWORD # Redis password
+        RedisDB: 0 # Redis DB
+        Timeout: 5 # Timeout for redis request
+        Expiry: 60 # Expiry time (second)
+</code></pre>
                                 
                                 </section>
                             
@@ -629,7 +661,7 @@ firewall-cmd --reload
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"XMPlus Backend Installation - Backend","level":"3.2","depth":1,"next":{"title":"Protocols","level":"4.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"previous":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"path":"install/xrayr.md","ref":"install/xrayr.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2024-08-20T22:04:23.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-20T22:04:47.750Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"XMPlus Backend Installation - Backend","level":"3.2","depth":1,"next":{"title":"Protocols","level":"4.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"previous":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"path":"install/xrayr.md","ref":"install/xrayr.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/xmplus.md","mtime":"2024-08-21T20:57:57.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-21T20:58:22.986Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
