@@ -127,3 +127,55 @@ Node A and B must have the XMPlus backend installed
 Node A -> Transit Type -> XMPlus backend
 
 Node A -> Transit Server -> select target Node B
+
+
+## XMPlus IPLimit 
+
+### Install redis-server on a dedicated server
+
+# Server
+
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install redis-server
+
+Edit ```/etc/redis/redis.conf``` and set ```bind 0.0.0.0``` and ```requirepass yourownpass```
+
+Edit ```/etc/systemd/system/redis.service```  add Type=notify under service
+
+```
+[Service]
+Type=notify
+
+ExecStart=/usr/bin/redis-server /etc/redis.conf --supervised systemd
+```
+
+Restart redis Server
+
+```sudo systemctl daemon-reload```
+```sudo systemctl enable redis-server.service```
+```sudo systemctl restart redis```
+```sudo systemctl status redis```
+
+Check if redis is running and install redis client on all backend servers
+
+### Install redis-client on xmplus backend servers
+
+# Client
+
+sudo apt-get install redis-tools
+sudo apt install redis-tools
+
+## Fill in details for XMPLus IPLimit
+
+```
+      IPLimit:
+        Enable: true # Enable the global ip limit of a user 
+        RedisNetwork: tcp # Redis protocol, tcp or unix
+        RedisAddr: 127.0.0.1:6379 # Redis server address, or unix socket path
+        RedisUsername: default # Redis username
+        RedisPassword: YOUR PASSWORD # Redis password
+        RedisDB: 0 # Redis DB
+        Timeout: 5 # Timeout for redis request
+        Expiry: 60 # Expiry time (second) 
+```		
