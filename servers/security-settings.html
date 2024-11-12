@@ -389,64 +389,42 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="security-settings">Security Settings</h1>
-<p>NB: Server port and listening port must be the same, unless you are using other method such as nginx(fill nginx port for server port) to process tls.</p>
-<h3 id="tls-settings">TLS Settings</h3>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;serverName&quot;</span>: <span class="hljs-string">&quot;xmplus.dev&quot;</span>,
-  <span class="hljs-string">&quot;rejectUnknownSni&quot;</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">&quot;allowInsecure&quot;</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-string">&quot;fingerprint&quot;</span>: <span class="hljs-string">&quot;chrome&quot;</span>,
-  <span class="hljs-string">&quot;sni&quot;</span>: <span class="hljs-string">&quot;xmplus.dev&quot;</span>,
-  <span class="hljs-string">&quot;alpn&quot;</span>: [
-    <span class="hljs-string">&quot;h2&quot;</span>,
-    <span class="hljs-string">&quot;http/1.1&quot;</span>
+<h3 id="security-settings">Security Settings</h3>
+<h4 id="tls">TLS</h4>
+<pre><code>{
+  &quot;serverName&quot;: &quot;xmplus.dev&quot;,
+  &quot;rejectUnknownSni&quot;: false,
+  &quot;allowInsecure&quot;: false,
+  &quot;fingerprint&quot;: &quot;chrome&quot;,
+  &quot;sni&quot;: &quot;xmplus.dev&quot;,
+  &quot;curvepreferences&quot;: &quot;X25519&quot;,
+  &quot;alpn&quot;: [
+    &quot;h2&quot;,
+    &quot;http/1.1&quot;
   ]
 }
-</code></pre>
-<blockquote>
-<p><code>serverName</code>: your certificate domain address</p>
-</blockquote>
-<p>Specifies the domain name of the server-side certificate, useful when the connection is established by IP.</p>
-<blockquote>
-<p><code>fingerprint</code>: &quot;&quot; | &quot;chrome&quot; | &quot;firefox&quot; | &quot;safari&quot; | &quot;randomized&quot;</p>
-</blockquote>
-<p>This parameter is used to configure the fingerprint of the specified TLS Client Hello. When its value is empty, it means that this function is not enabled. When enabled, Xray will simulate a TLS fingerprint via the uTLS library, or generate it randomly.</p>
-<blockquote>
-<p><code>allowInsecure</code>  true | false</p>
-</blockquote>
-<p>Whether to allow insecure connections (client only). The default value is false.</p>
-<blockquote>
-<p><code>rejectUnknownSni</code> true | false</p>
-</blockquote>
-<p>When the value is true, the server will reject the TLS handshake if the SNI received by the server does not match the domain name of the certificate. The default is false.</p>
-<blockquote>
-<p><code>sni</code>: server name identification, use for cert verification on client.</p>
-</blockquote>
-<p>Specifies the domain name of the server-side certificate, useful when the connection is established by IP.</p>
-<h3 id="reality-settings-frontend--client">Reality Settings (Frontend / Client)</h3>
-<p>[Check official readme here] (<a href="https://github.com/XTLS/REALITY#readme" target="_blank">https://github.com/XTLS/REALITY#readme</a>)</p>
-<p>[Generate Private and Public Keys] <code>xmplus x25519</code></p>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;show&quot;</span> : <span class="hljs-literal">false</span>,
-  <span class="hljs-string">&quot;dest&quot;</span>: <span class="hljs-string">&quot;www.lovelive-anime.jp:443&quot;</span>,
-  <span class="hljs-string">&quot;privatekey&quot;</span> : <span class="hljs-string">&quot;yBaw532IIUNuQWDTncozoBaLJmcd1JZzvsHUgVPxMk8&quot;</span>,
-  <span class="hljs-string">&quot;minclientver&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,
-  <span class="hljs-string">&quot;maxclientver&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,
-  <span class="hljs-string">&quot;maxtimediff&quot;</span>:<span class="hljs-number">0</span>,
-  <span class="hljs-string">&quot;proxyprotocol&quot;</span>:<span class="hljs-number">0</span>,
-  <span class="hljs-string">&quot;shortids&quot;</span> : [
-    <span class="hljs-string">&quot;6ba85179e30d4fc2&quot;</span>
+</code></pre><h4 id="reality">REALITY</h4>
+<p><code>Generate Private and Public Keys :   xmplus x25519</code></p>
+<pre><code>{
+  &quot;show&quot; : false,
+  &quot;dest&quot;: &quot;www.lovelive-anime.jp:443&quot;,
+  &quot;privatekey&quot; : &quot;yBaw532IIUNuQWDTncozoBaLJmcd1JZzvsHUgVPxMk8&quot;,
+  &quot;minclientver&quot;:&quot;&quot;,
+  &quot;maxclientver&quot;:&quot;&quot;,
+  &quot;maxtimediff&quot;:0,
+  &quot;proxyprotocol&quot;:0,
+  &quot;shortids&quot; : [
+    &quot;6ba85179e30d4fc2&quot;
   ],
-  <span class="hljs-string">&quot;serverNames&quot;</span>: [
-    <span class="hljs-string">&quot;www.lovelive-anime.jp&quot;</span>,
-    <span class="hljs-string">&quot;www.cloudflare.com&quot;</span>
+  &quot;serverNames&quot;: [
+    &quot;www.lovelive-anime.jp&quot;,
+    &quot;www.cloudflare.com&quot;
   ],
-  <span class="hljs-string">&quot;fingerprint&quot;</span>: <span class="hljs-string">&quot;chrome&quot;</span>,
-  <span class="hljs-string">&quot;spiderx&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-  <span class="hljs-string">&quot;publickey&quot;</span>: <span class="hljs-string">&quot;7xhH4b_VkliBxGulljcyPOH-bYUA2dl-XAdZAsfhk04&quot;</span>
+  &quot;fingerprint&quot;: &quot;chrome&quot;,
+  &quot;spiderx&quot;: &quot;&quot;,
+  &quot;publickey&quot;: &quot;7xhH4b_VkliBxGulljcyPOH-bYUA2dl-XAdZAsfhk04&quot;
 }
 </code></pre>
-
                                 
                                 </section>
                             
@@ -489,7 +467,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security Settings","level":"4.2","depth":1,"next":{"title":"XMPlus Network Settings","level":"4.3","depth":1,"path":"servers/network-settings.md","ref":"servers/network-settings.md","articles":[]},"previous":{"title":"Protocols","level":"4.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/security-settings.md","mtime":"2024-08-21T20:57:57.895Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-21T20:58:22.986Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Security Settings","level":"4.2","depth":1,"next":{"title":"XMPlus Network Settings","level":"4.3","depth":1,"path":"servers/network-settings.md","ref":"servers/network-settings.md","articles":[]},"previous":{"title":"Protocols","level":"4.1","depth":1,"path":"servers/protocols.md","ref":"servers/protocols.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"servers/security-settings.md","mtime":"2024-11-12T16:54:54.048Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-12T16:55:18.942Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
