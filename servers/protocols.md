@@ -7,7 +7,8 @@
 |  ws | √ |  √ | √ | √ |
 |  h2 | X |  X | √ | √ | 
 |  grpc | √ |  √ | √ | √ |
-|  quic | √ |  X | √ | √ |
+|  splithttp | X |  X | √ | √ |
+|  httpUPGRADE | X |  X | √ | √ |
 |  kcp | X |  X | √ | √ |
 
 
@@ -20,7 +21,6 @@
 | WS | √ |
 | WS + TLS | √ |
 | GRPC + TLS | √ |
-| QUIC + TLS | √ |
 
 
 ### Trojan
@@ -30,6 +30,7 @@
 | TCP + TLS/XTLS | √ |
 | WS + TLS | √ |
 | GRPC + TLS | √ |
+| HTTPUPGRADE + TLS | √ |
 
 
 ### Vmess
@@ -44,7 +45,8 @@
 | H2 | √ |
 | H2 + TLS | √ |
 | GRPC + TLS | √ |
-| QUIC + TLS | √ |
+| SPLITHTTP + TLS | √ |
+| HTTPUPGRADE + TLS | √ |
 | KCP | √ |
 
 ### Vless
@@ -59,5 +61,6 @@
 | H2 | √ |
 | H2 + TLS | √ |
 | GRPC + TLS | √ |
-| QUIC + TLS | √ |
+| SPLITHTTP + TLS | √ |
+| HTTPUPGRADE + TLS | √ |
 | KCP | √ |

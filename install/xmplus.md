@@ -24,7 +24,7 @@ The XMPlus backend is a customized version of XRayR (one server supports multipl
 ### one-click installation
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/XMPlusDev/XMPlusv1/install/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/XMPlusDev/XMPlus/scripts/install.sh)
 ```
 
 ### Backend configuration
@@ -33,9 +33,10 @@ vi /etc/XMPlus/config.yml  or can use any editor
 
 ```
 Log:
-  Level: warning # Log level: none, error, warning, info, debug 
+  Level: none # Log level: none, error, warning, info, debug 
   AccessPath: # /etc/XMPlus/access.Log
   ErrorPath: # /etc/XMPlus/error.log
+  MaskAddress: half # half, full, quarter
 DnsConfigPath:  #/etc/XMPlus/dns.json
 RouteConfigPath: # /etc/XMPlus/route.json
 InboundConfigPath: # /etc/XMPlus/inbound.json

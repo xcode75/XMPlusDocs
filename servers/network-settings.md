@@ -13,6 +13,7 @@
   }
 }
 ```
+
 #### TCP + HTTP
 ```
 {
@@ -36,7 +37,7 @@
   "acceptProxyProtocol": false,
   "path": "/xmplus?ed=2560",
   "host": "hk1.xyz.com",
-  "cdn_host": "www.cloudflare.com"
+  "cdn_host": "fakedomain.com"
 }
 ```
 
@@ -47,7 +48,7 @@
   "acceptProxyProtocol": false,
   "host": "hk1.xyz.com",
   "path": "/",
-  "cdn_host": "www.cloudflare.com"
+  "cdn_host": "fakedomain.com"
 }
 ```
 
@@ -68,7 +69,7 @@
   "acceptProxyProtocol": false,
   "host": "hk1.xyz.com",
   "path": "/xmplus?ed=2560",
-  "cdn_host": "www.cloudflare.com"
+  "cdn_host": "fakedomain.com"
 }
 ```
 
@@ -77,27 +78,16 @@
 {
   "transport" : "splithttp",
   "host": "hk1.xyz.com",
-  "cdn_host": "www.cloudflare.com",
+  "cdn_host": "fakedomain.com",
   "path": "/",
   "scMaxEachPostBytes": 1000000,
   "scMaxConcurrentPosts": 100,
   "scMinPostsIntervalMs": 30,
-  "noSSEHeader": false
+  "noSSEHeader": false,
+  "xPaddingBytes": 200
 }
 ```
 
-####  QUIC
-```
-{
-  "transport" : "quic",
-  "acceptProxyProtocol": false,
-  "security": "none",
-  "key": "",
-  "header": {
-    "type": "none"
-  }
-}
-```
 ####  KCP
 ```
 {
