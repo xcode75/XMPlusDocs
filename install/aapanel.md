@@ -54,9 +54,14 @@ unzip XMPlus.zip
 
 php composer.phar -n update
 
+rm -rf XMPlus.zip
+
 mv .user.ini /www/wwwroot/tld.com/public
 
-rm -rf XMPlus.zip
+cd/www/wwwroot/tld.com/public
+
+chattr +i .user.ini
+
 ```
 
 aaPanel  > Databases > Root password
