@@ -52,13 +52,11 @@ wget https://github.com/xcode75/XManagerPlus/releases/download/v20230718/XMPlus.
 
 unzip XMPlus.zip
 
-chmod +x install.sh
-
-./install.sh
+php composer.phar -n update
 
 mv .user.ini /www/wwwroot/tld.com/public
 
-rm -rf install.sh XMPlus.zip
+rm -rf XMPlus.zip
 ```
 
 aaPanel  > Databases > Root password
@@ -101,6 +99,18 @@ Edit the added site  > Conf > SSL
 Check site domain and apply for certificate, Enable Force HTTPS
 
 ### Restart nginx
+
+
+### Add cron job
+
+Change `/www/wwwroot/tld.com` . Is your panel directory path
+
+```
+crontab -l > cron.tmp
+echo "* * * * * cd /www/wwwroot/tld.com && /usr/bin/php xmplus job:run >> /dev/null 2>&1" >> cron.tmp
+crontab cron.tmp
+rm -rf cron.tmp
+```	
 
 #### Create an administrator account:  
 
