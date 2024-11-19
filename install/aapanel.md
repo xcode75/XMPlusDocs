@@ -41,7 +41,7 @@ The following commands need to be executed in the site directory.
 ```
 chattr -i .user.ini
 
-rm -rf .user.ini .htaccess 404.html index.html
+rm -rf .htaccess 404.html index.html
 ```
 
 ### Execute the command to install XMPlus
