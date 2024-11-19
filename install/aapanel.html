@@ -425,13 +425,11 @@ wget https://github.com/xcode75/XManagerPlus/releases/download/v20230718/XMPlus.
 
 unzip XMPlus.zip
 
-chmod +x install.sh
-
-./install.sh
+php composer.phar -n update
 
 mv .user.ini /www/wwwroot/tld.com/public
 
-rm -rf install.sh XMPlus.zip
+rm -rf XMPlus.zip
 </code></pre><p>aaPanel  &gt; Databases &gt; Root password</p>
 <p>Login to phpMyAdmin with username root and your database root password</p>
 <p>Server connection collation: utf8mb4_unicode_ci</p>
@@ -466,7 +464,13 @@ rm -rf install.sh XMPlus.zip
 <p>Edit the added site  &gt; Conf &gt; SSL </p>
 <p>Check site domain and apply for certificate, Enable Force HTTPS</p>
 <h3 id="restart-nginx">Restart nginx</h3>
-<h4 id="create-an-administrator-account">Create an administrator account:</h4>
+<h3 id="add-cron-job">Add cron job</h3>
+<p>Change <code>/www/wwwroot/tld.com</code> . Is your panel directory path</p>
+<pre><code>crontab -l &gt; cron.tmp
+echo &quot;* * * * * cd /www/wwwroot/tld.com &amp;&amp; /usr/bin/php xmplus job:run &gt;&gt; /dev/null 2&gt;&amp;1&quot; &gt;&gt; cron.tmp
+crontab cron.tmp
+rm -rf cron.tmp
+</code></pre><h4 id="create-an-administrator-account">Create an administrator account:</h4>
 <p>After logging in to the server through SSH, visit the site path:cd  /www/wwwroot/tld.com</p>
 <p>input the command: php xmplus admin</p>
 <h4 id="download-application">Download application</h4>
@@ -514,7 +518,7 @@ rm -rf install.sh XMPlus.zip
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"next":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"path":"install/xrayr.md","ref":"install/xrayr.md","articles":[]},"previous":{"title":"About XMPlus","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/aapanel.md","mtime":"2024-11-12T16:54:54.048Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-12T16:55:18.942Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Frontend Installation - Frontend","level":"2.1","depth":1,"next":{"title":"XrayR Backend Installation - Backend","level":"3.1","depth":1,"path":"install/xrayr.md","ref":"install/xrayr.md","articles":[]},"previous":{"title":"About XMPlus","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["hints"],"pluginsConfig":{"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"install/aapanel.md","mtime":"2024-11-19T09:27:42.601Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-19T09:28:07.103Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
