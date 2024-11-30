@@ -37,6 +37,7 @@
   "acceptProxyProtocol": false,
   "path": "/xmplus?ed=2560",
   "host": "hk1.xyz.com",
+  "heartbeatperiod": 10,
   "cdn_host": "fakedomain.com"
 }
 ```
@@ -86,7 +87,8 @@
   "noSSEHeader": false,
   "xPaddingBytes": 200,
   "noGRPCHeader": true,
-  "mode": "auto", // "auto", "packet-up", "stream-up"
+  "keepaliveperiod": 60,
+  "mode": "auto"   // "auto", "packet-up", "stream-up", "stream-one"
 }
 ```
 
