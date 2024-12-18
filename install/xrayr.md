@@ -28,7 +28,7 @@ A Xray backend framework that can easily support many panels.
 ### one-click installation
 
 ```
-wget -N https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh && bash install.sh
+wget -N https://raw.githubusercontent.com/wyx2685/XrayR-release/master/install.sh && bash install.sh
 ```
 
 ### Backend configuration
